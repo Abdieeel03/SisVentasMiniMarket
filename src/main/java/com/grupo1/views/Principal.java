@@ -4,8 +4,11 @@
  */
 package com.grupo1.views;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,18 +16,18 @@ import javax.swing.ImageIcon;
  */
 public class Principal extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Principal
-     */
+    FondoPanel fondo = new FondoPanel();
+    String rutaImagen = "/imgPrincipal.jpg";
+    
     public Principal() {
         initComponents();
-        initStyles();
     }
 
     private void initStyles(){
-        Icon logo = new ImageIcon(new ImageIcon(getClass().getResource("/imgPrincipal.jpg")).getImage().getScaledInstance(895, 735, 0));
-        lblImagen.setIcon(logo);
+        
     }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,8 +37,7 @@ public class Principal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlPantalla = new javax.swing.JPanel();
-        lblImagen = new javax.swing.JLabel();
+        pnlPantalla = new FondoPanel();
 
         setPreferredSize(new java.awt.Dimension(895, 730));
 
@@ -45,11 +47,11 @@ public class Principal extends javax.swing.JPanel {
         pnlPantalla.setLayout(pnlPantallaLayout);
         pnlPantallaLayout.setHorizontalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 895, Short.MAX_VALUE)
+            .addGap(0, 895, Short.MAX_VALUE)
         );
         pnlPantallaLayout.setVerticalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+            .addGap(0, 730, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -64,9 +66,19 @@ public class Principal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    // Clase para ponerle fondo a un JPANEL
+    class FondoPanel extends JPanel{
+        private Image imagen;
+        @Override
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource(rutaImagen)).getImage();
+            g.drawImage(imagen, 0, 0,getWidth(),getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblImagen;
     private javax.swing.JPanel pnlPantalla;
     // End of variables declaration//GEN-END:variables
 }

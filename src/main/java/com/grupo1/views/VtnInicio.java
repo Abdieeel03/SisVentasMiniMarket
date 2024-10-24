@@ -4,10 +4,10 @@
  */
 package com.grupo1.views;
 
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import java.awt.BorderLayout;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -23,14 +23,24 @@ public class VtnInicio extends javax.swing.JFrame {
         initComponents();
         initStyles();
         initContent();
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
     private void initStyles() {
-        /*
-        Icon logo = new ImageIcon(new ImageIcon(getClass().getResource("/logoMinimarket.png")).getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), 222));
-        lblLogo.setIcon(logo);
-         */
         lblNbrEmpresa.putClientProperty("FlatLaf.styleClass", "h1");
+        btnGenerarVenta.setBackground(Color.WHITE);
+        btnGenerarVenta.setForeground(Color.BLACK);
+        btnProductos.setBackground(Color.WHITE);
+        btnProductos.setForeground(Color.BLACK);
+        btnProveedores.setBackground(Color.WHITE);
+        btnProveedores.setForeground(Color.BLACK);
+        btnUsuarios.setBackground(Color.WHITE);
+        btnUsuarios.setForeground(Color.BLACK);
+        btnReporteVentas.setBackground(Color.WHITE);
+        btnReporteVentas.setForeground(Color.BLACK);
+        btnCerrarSesion.setBackground(Color.WHITE);
+        btnCerrarSesion.setForeground(Color.BLACK);
+        lblNbrEmpresa.setForeground(Color.BLACK);
     }
 
     private void initContent() {
@@ -38,7 +48,7 @@ public class VtnInicio extends javax.swing.JFrame {
     }
 
     private void showJPanel(JPanel jp) {
-        pnlPantalla.setLayout(new BorderLayout()); // Asegúrate de usar BorderLayout
+        pnlPantalla.setLayout(new BorderLayout());
         pnlPantalla.removeAll();
         pnlPantalla.add(jp, BorderLayout.CENTER); // Añade el JPanel en el centro
         pnlPantalla.revalidate();
@@ -68,6 +78,11 @@ public class VtnInicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 730));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         pnlBackground.setBackground(new java.awt.Color(255, 255, 255));
         pnlBackground.setMinimumSize(new java.awt.Dimension(1280, 730));
@@ -94,44 +109,60 @@ public class VtnInicio extends javax.swing.JFrame {
             }
         });
 
+        btnProductos.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconProducto.png"))); // NOI18N
         btnProductos.setText("Productos");
         btnProductos.setBorderPainted(false);
         btnProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProductos.setIconTextGap(10);
         btnProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductosActionPerformed(evt);
             }
         });
 
+        btnProveedores.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconProveedor.png"))); // NOI18N
         btnProveedores.setText("Proveedores");
         btnProveedores.setBorderPainted(false);
         btnProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProveedores.setIconTextGap(10);
         btnProveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProveedoresActionPerformed(evt);
             }
         });
 
+        btnUsuarios.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconUsuario.png"))); // NOI18N
         btnUsuarios.setText("Usuarios");
         btnUsuarios.setBorderPainted(false);
         btnUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsuarios.setIconTextGap(10);
         btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuariosActionPerformed(evt);
             }
         });
 
+        btnReporteVentas.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnReporteVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconReporteVenta.png"))); // NOI18N
         btnReporteVentas.setText("Reporte de Ventas");
         btnReporteVentas.setBorderPainted(false);
         btnReporteVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReporteVentas.setIconTextGap(10);
         btnReporteVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReporteVentasActionPerformed(evt);
             }
         });
 
+        btnCerrarSesion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconLogout.png"))); // NOI18N
         btnCerrarSesion.setText("Cerrar Sesion");
         btnCerrarSesion.setBorderPainted(false);
+        btnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrarSesion.setIconTextGap(10);
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarSesionActionPerformed(evt);
@@ -228,15 +259,15 @@ public class VtnInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
-        // TODO add your handling code here:
+        showJPanel(new Proveedor());
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        // TODO add your handling code here:
+        showJPanel(new Usuario());
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnReporteVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteVentasActionPerformed
-        // TODO add your handling code here:
+        showJPanel(new ReporteDeVentas());
     }//GEN-LAST:event_btnReporteVentasActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
@@ -247,11 +278,24 @@ public class VtnInicio extends javax.swing.JFrame {
         showJPanel(new RegistrarVenta());
     }//GEN-LAST:event_btnGenerarVentaActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int opcion = JOptionPane.showConfirmDialog(
+                VtnInicio.this,
+                "¿Estás seguro de querer salir?",
+                "Confirmar salida",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            System.exit(0); // Cierra la aplicación
+        }
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        FlatMaterialLighterIJTheme.setup();
+        FlatMacLightLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VtnInicio().setVisible(true);
