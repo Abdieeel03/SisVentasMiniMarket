@@ -8,12 +8,12 @@ package com.grupo1.views;
  *
  * @author Abdiel
  */
-public class EditarProveedor extends javax.swing.JPanel {
+public class NuevoProveedor extends javax.swing.JPanel {
 
     /**
      * Creates new form Productos
      */
-    public EditarProveedor() {
+    public NuevoProveedor() {
         initComponents();
     }
 
