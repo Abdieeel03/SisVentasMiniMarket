@@ -4,16 +4,18 @@
  */
 package com.grupo1.views;
 
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Abdiel
  */
 public class Proveedor extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Productos
-     */
-    public Proveedor() {
+    private VtnInicio vtnInicio;
+
+    public Proveedor(VtnInicio vtnInicio) {
+        this.vtnInicio = vtnInicio;
         initComponents();
     }
 
@@ -27,20 +29,52 @@ public class Proveedor extends javax.swing.JPanel {
     private void initComponents() {
 
         pnlPantalla = new javax.swing.JPanel();
+        btnNuevoProveedor = new javax.swing.JButton();
+        btnBuscarProveedor = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        pnlPantalla.setBackground(new java.awt.Color(255, 0, 102));
+        pnlPantalla.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnNuevoProveedor.setBackground(new java.awt.Color(204, 204, 204));
+        btnNuevoProveedor.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnNuevoProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-proveedor-24.png"))); // NOI18N
+        btnNuevoProveedor.setText("Nuevo Proveedor");
+        btnNuevoProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoProveedorActionPerformed(evt);
+            }
+        });
+
+        btnBuscarProveedor.setBackground(new java.awt.Color(204, 204, 204));
+        btnBuscarProveedor.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnBuscarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-búsqueda-25.png"))); // NOI18N
+        btnBuscarProveedor.setText("Buscar Proveedor");
+        btnBuscarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarProveedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlPantallaLayout = new javax.swing.GroupLayout(pnlPantalla);
         pnlPantalla.setLayout(pnlPantallaLayout);
         pnlPantallaLayout.setHorizontalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 895, Short.MAX_VALUE)
+            .addGroup(pnlPantallaLayout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(btnNuevoProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(btnBuscarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                .addGap(248, 248, 248))
         );
         pnlPantallaLayout.setVerticalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPantallaLayout.createSequentialGroup()
+                .addGap(273, 273, 273)
+                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBuscarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                    .addComponent(btnNuevoProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(314, 314, 314))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -55,8 +89,18 @@ public class Proveedor extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnNuevoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProveedorActionPerformed
+        vtnInicio.showJPanel(new NuevoProveedor(vtnInicio));
+    }//GEN-LAST:event_btnNuevoProveedorActionPerformed
+
+    private void btnBuscarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProveedorActionPerformed
+        vtnInicio.showJPanel(new BuscarProveedor(vtnInicio));
+    }//GEN-LAST:event_btnBuscarProveedorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarProveedor;
+    private javax.swing.JButton btnNuevoProveedor;
     private javax.swing.JPanel pnlPantalla;
     // End of variables declaration//GEN-END:variables
 }

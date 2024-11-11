@@ -10,10 +10,10 @@ package com.grupo1.views;
  */
 public class BuscarProveedor extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Productos
-     */
-    public BuscarProveedor() {
+    private VtnInicio vtnInicio;
+
+    public BuscarProveedor(VtnInicio vtnInicio) {
+        this.vtnInicio = vtnInicio;
         initComponents();
     }
 
@@ -27,18 +27,77 @@ public class BuscarProveedor extends javax.swing.JPanel {
     private void initComponents() {
 
         pnlPantalla = new javax.swing.JPanel();
+        lblNombre = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableProveedor = new javax.swing.JTable();
+        txtBusqueda = new javax.swing.JTextField();
+        btnCancelar = new javax.swing.JButton();
 
         pnlPantalla.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblNombre.setText("Nombre: ");
+
+        tableProveedor.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        tableProveedor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "RUC", "NOMBRE", "DIRECCION", "TELEFONO ", "PAGINA"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableProveedor);
+        if (tableProveedor.getColumnModel().getColumnCount() > 0) {
+            tableProveedor.getColumnModel().getColumn(0).setResizable(false);
+            tableProveedor.getColumnModel().getColumn(1).setResizable(false);
+            tableProveedor.getColumnModel().getColumn(2).setResizable(false);
+            tableProveedor.getColumnModel().getColumn(3).setResizable(false);
+            tableProveedor.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-cerrar-ventana-25.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlPantallaLayout = new javax.swing.GroupLayout(pnlPantalla);
         pnlPantalla.setLayout(pnlPantallaLayout);
         pnlPantallaLayout.setHorizontalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 895, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPantallaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPantallaLayout.createSequentialGroup()
+                        .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pnlPantallaLayout.setVerticalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGroup(pnlPantallaLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -53,8 +112,17 @@ public class BuscarProveedor extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        vtnInicio.showJPanel(new Proveedor(vtnInicio));
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JPanel pnlPantalla;
+    private javax.swing.JTable tableProveedor;
+    private javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
 }

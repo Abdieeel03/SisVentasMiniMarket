@@ -8,13 +8,14 @@ package com.grupo1.views;
  *
  * @author Abdiel
  */
-public class NuevoProveedor extends javax.swing.JPanel {
+public class EditarProveedor extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Productos
-     */
-    public NuevoProveedor() {
+    private VtnInicio vtnInicio;
+
+    public EditarProveedor(VtnInicio vtnInicio) {
+        this.vtnInicio = vtnInicio;
         initComponents();
+        btnSalir.addActionListener(e -> vtnInicio.showJPanel(new Principal()));
     }
 
     /**
@@ -27,18 +28,161 @@ public class NuevoProveedor extends javax.swing.JPanel {
     private void initComponents() {
 
         pnlPantalla = new javax.swing.JPanel();
+        pnlForm = new javax.swing.JPanel();
+        lblRuc = new javax.swing.JLabel();
+        txtRUC = new javax.swing.JTextField();
+        lblNombre = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        lblDireccion = new javax.swing.JLabel();
+        txtDireccion = new javax.swing.JTextField();
+        lblTelefono = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
+        lblPagina = new javax.swing.JLabel();
+        txtPagina = new javax.swing.JTextField();
+        btnRegistrarProveedor = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnRegistrarProveedor1 = new javax.swing.JButton();
 
         pnlPantalla.setBackground(new java.awt.Color(255, 255, 255));
+        pnlPantalla.setPreferredSize(new java.awt.Dimension(895, 730));
+
+        pnlForm.setBackground(new java.awt.Color(255, 255, 255));
+        pnlForm.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del Proveedor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 0, 14))); // NOI18N
+
+        lblRuc.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblRuc.setText(" RUC:");
+
+        lblNombre.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblNombre.setText("Nombre:");
+
+        lblDireccion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblDireccion.setText("Dirección:");
+
+        lblTelefono.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblTelefono.setText("Telefono:");
+
+        lblPagina.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblPagina.setText("Pagina Web:");
+
+        javax.swing.GroupLayout pnlFormLayout = new javax.swing.GroupLayout(pnlForm);
+        pnlForm.setLayout(pnlFormLayout);
+        pnlFormLayout.setHorizontalGroup(
+            pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlFormLayout.createSequentialGroup()
+                        .addComponent(lblRuc)
+                        .addGap(83, 83, 83)
+                        .addComponent(txtRUC, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormLayout.createSequentialGroup()
+                        .addComponent(lblNombre)
+                        .addGap(64, 64, 64)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
+                    .addGroup(pnlFormLayout.createSequentialGroup()
+                        .addComponent(lblDireccion)
+                        .addGap(55, 55, 55)
+                        .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
+                    .addGroup(pnlFormLayout.createSequentialGroup()
+                        .addComponent(lblTelefono)
+                        .addGap(60, 60, 60)
+                        .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
+                    .addGroup(pnlFormLayout.createSequentialGroup()
+                        .addComponent(lblPagina)
+                        .addGap(40, 40, 40)
+                        .addComponent(txtPagina, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pnlFormLayout.setVerticalGroup(
+            pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlFormLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(lblRuc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtRUC))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlFormLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtNombre))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlFormLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(lblDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtDireccion))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlFormLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(lblTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtTelefono))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlFormLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(lblPagina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtPagina))
+                .addContainerGap())
+        );
+
+        btnRegistrarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-identification-documents-32.png"))); // NOI18N
+        btnRegistrarProveedor.setText("Registrar Proveedor");
+        btnRegistrarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarProveedorActionPerformed(evt);
+            }
+        });
+
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-cerrar-ventana-25.png"))); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
+        btnRegistrarProveedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-tacho-de-basura-25.png"))); // NOI18N
+        btnRegistrarProveedor1.setText("Eliminar");
+        btnRegistrarProveedor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarProveedor1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlPantallaLayout = new javax.swing.GroupLayout(pnlPantalla);
         pnlPantalla.setLayout(pnlPantallaLayout);
         pnlPantallaLayout.setHorizontalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 895, Short.MAX_VALUE)
+            .addGroup(pnlPantallaLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(pnlForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
+                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegistrarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                    .addComponent(btnRegistrarProveedor1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
+                .addGap(63, 63, 63))
         );
         pnlPantallaLayout.setVerticalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGroup(pnlPantallaLayout.createSequentialGroup()
+                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPantallaLayout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addComponent(pnlForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlPantallaLayout.createSequentialGroup()
+                        .addGap(247, 247, 247)
+                        .addComponent(btnRegistrarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRegistrarProveedor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(8, 8, 8)))
+                .addGap(259, 259, 259))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -53,8 +197,34 @@ public class NuevoProveedor extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegistrarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarProveedorActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnRegistrarProveedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarProveedor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarProveedor1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistrarProveedor;
+    private javax.swing.JButton btnRegistrarProveedor1;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel lblDireccion;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPagina;
+    private javax.swing.JLabel lblRuc;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JPanel pnlForm;
     private javax.swing.JPanel pnlPantalla;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPagina;
+    private javax.swing.JTextField txtRUC;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

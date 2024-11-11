@@ -47,7 +47,7 @@ public class VtnInicio extends javax.swing.JFrame {
         showJPanel(new Principal());
     }
 
-    private void showJPanel(JPanel jp) {
+    public void showJPanel(JPanel jp) {
         pnlPantalla.setLayout(new BorderLayout());
         pnlPantalla.removeAll();
         pnlPantalla.add(jp, BorderLayout.CENTER); // Añade el JPanel en el centro
@@ -78,6 +78,7 @@ public class VtnInicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 730));
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -203,7 +204,7 @@ public class VtnInicio extends javax.swing.JFrame {
                 .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnReporteVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                 .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -216,11 +217,11 @@ public class VtnInicio extends javax.swing.JFrame {
         pnlPantalla.setLayout(pnlPantallaLayout);
         pnlPantallaLayout.setHorizontalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 895, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         pnlPantallaLayout.setVerticalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlBackgroundLayout = new javax.swing.GroupLayout(pnlBackground);
@@ -230,13 +231,12 @@ public class VtnInicio extends javax.swing.JFrame {
             .addGroup(pnlBackgroundLayout.createSequentialGroup()
                 .addComponent(pnlMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlPantalla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(5, 5, 5))
+                .addComponent(pnlPantalla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBackgroundLayout.setVerticalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
             .addComponent(pnlPantalla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -259,7 +259,7 @@ public class VtnInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
-        showJPanel(new Proveedor());
+        showJPanel(new Proveedor(this));
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
@@ -271,11 +271,20 @@ public class VtnInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReporteVentasActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
-        // TODO add your handling code here:
+        int opcion = JOptionPane.showConfirmDialog(
+                VtnInicio.this,
+                "¿Estás seguro de querer cerrar sesión?",
+                "Confirmar cierre",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Funcion aun no implementada.");
+        }
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnGenerarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarVentaActionPerformed
-        showJPanel(new RegistrarVenta());
+        showJPanel(new RegistrarVenta(this));
     }//GEN-LAST:event_btnGenerarVentaActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

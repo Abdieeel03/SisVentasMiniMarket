@@ -30,7 +30,7 @@ public class Usuario extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        pnlPantalla.setBackground(new java.awt.Color(255, 153, 0));
+        pnlPantalla.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout pnlPantallaLayout = new javax.swing.GroupLayout(pnlPantalla);
         pnlPantalla.setLayout(pnlPantallaLayout);
