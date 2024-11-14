@@ -16,12 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlPantalla" alignment="0" max="32767" attributes="0"/>
+          <Component id="pnlPantalla" alignment="0" pref="900" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlPantalla" alignment="0" max="32767" attributes="0"/>
+          <Component id="pnlPantalla" alignment="0" pref="755" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -44,8 +44,8 @@
                   <Component id="pnlForm" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnRegistrarProveedor" alignment="1" pref="225" max="32767" attributes="0"/>
-                      <Component id="btnSalir" alignment="1" pref="225" max="32767" attributes="0"/>
+                      <Component id="btnRegistrar" alignment="1" pref="228" max="32767" attributes="0"/>
+                      <Component id="btnSalir" alignment="1" pref="228" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
@@ -57,7 +57,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="252" max="-2" attributes="0"/>
-                          <Component id="btnRegistrarProveedor" max="32767" attributes="0"/>
+                          <Component id="btnRegistrar" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="btnSalir" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -101,22 +101,22 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                              <Component id="txtNombre" pref="379" max="32767" attributes="0"/>
+                              <Component id="txtNombre" pref="381" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblDireccion" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                              <Component id="txtDireccion" pref="379" max="32767" attributes="0"/>
+                              <Component id="txtDireccion" pref="381" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblTelefono" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Component id="txtTelefono" pref="379" max="32767" attributes="0"/>
+                              <Component id="txtTelefono" pref="381" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblPagina" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="txtPagina" pref="379" max="32767" attributes="0"/>
+                              <Component id="txtPagina" pref="381" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -130,7 +130,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Component id="lblRuc" max="32767" attributes="0"/>
+                              <Component id="lblRuc" pref="25" max="32767" attributes="0"/>
                           </Group>
                           <Component id="txtRUC" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -138,7 +138,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Component id="lblNombre" max="32767" attributes="0"/>
+                              <Component id="lblNombre" pref="25" max="32767" attributes="0"/>
                           </Group>
                           <Component id="txtNombre" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -146,23 +146,20 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Component id="lblDireccion" max="32767" attributes="0"/>
+                              <Component id="lblDireccion" pref="25" max="32767" attributes="0"/>
                           </Group>
                           <Component id="txtDireccion" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Component id="lblTelefono" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="txtTelefono" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblTelefono" alignment="3" pref="25" max="32767" attributes="0"/>
+                          <Component id="txtTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Component id="lblPagina" max="32767" attributes="0"/>
+                              <Component id="lblPagina" pref="25" max="32767" attributes="0"/>
                           </Group>
                           <Component id="txtPagina" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -181,6 +178,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtRUC">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNombre">
               <Properties>
@@ -191,6 +191,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNombre">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblDireccion">
               <Properties>
@@ -201,6 +204,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtDireccion">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTelefono">
               <Properties>
@@ -211,6 +217,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtTelefono">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblPagina">
               <Properties>
@@ -221,10 +230,13 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtPagina">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnRegistrarProveedor">
+        <Component class="javax.swing.JButton" name="btnRegistrar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/icons8-identification-documents-32.png"/>
@@ -232,8 +244,11 @@
             <Property name="text" type="java.lang.String" value="Registrar Proveedor"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarProveedorActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btnSalir">
           <Properties>
@@ -245,6 +260,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

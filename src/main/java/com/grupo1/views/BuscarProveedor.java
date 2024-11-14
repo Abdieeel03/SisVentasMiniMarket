@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.grupo1.views;
 
 /**
@@ -9,11 +5,8 @@ package com.grupo1.views;
  * @author Abdiel
  */
 public class BuscarProveedor extends javax.swing.JPanel {
-
-    private VtnInicio vtnInicio;
-
-    public BuscarProveedor(VtnInicio vtnInicio) {
-        this.vtnInicio = vtnInicio;
+    
+    public BuscarProveedor() {
         initComponents();
     }
 
@@ -80,10 +73,10 @@ public class BuscarProveedor extends javax.swing.JPanel {
                 .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPantallaLayout.createSequentialGroup()
-                        .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                        .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlPantallaLayout.setVerticalGroup(
@@ -96,7 +89,7 @@ public class BuscarProveedor extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -113,16 +106,16 @@ public class BuscarProveedor extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        vtnInicio.showJPanel(new Proveedor(vtnInicio));
+
     }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnCancelar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JPanel pnlPantalla;
-    private javax.swing.JTable tableProveedor;
-    private javax.swing.JTextField txtBusqueda;
+    public javax.swing.JTable tableProveedor;
+    public javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
 }

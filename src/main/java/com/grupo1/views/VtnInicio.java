@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.grupo1.views;
 
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
@@ -16,17 +12,13 @@ import javax.swing.JPanel;
  */
 public class VtnInicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VtnInicio
-     */
     public VtnInicio() {
         initComponents();
         initStyles();
-        initContent();
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
-    private void initStyles() {
+    public void initStyles() {
         lblNbrEmpresa.putClientProperty("FlatLaf.styleClass", "h1");
         btnGenerarVenta.setBackground(Color.WHITE);
         btnGenerarVenta.setForeground(Color.BLACK);
@@ -41,10 +33,6 @@ public class VtnInicio extends javax.swing.JFrame {
         btnCerrarSesion.setBackground(Color.WHITE);
         btnCerrarSesion.setForeground(Color.BLACK);
         lblNbrEmpresa.setForeground(Color.BLACK);
-    }
-
-    private void initContent() {
-        showJPanel(new Principal());
     }
 
     public void showJPanel(JPanel jp) {
@@ -209,7 +197,7 @@ public class VtnInicio extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlPantalla.setBackground(new java.awt.Color(255, 51, 51));
+        pnlPantalla.setBackground(new java.awt.Color(255, 255, 255));
         pnlPantalla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pnlPantalla.setRequestFocusEnabled(false);
 
@@ -255,36 +243,27 @@ public class VtnInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-        showJPanel(new Productos());
+
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
-        showJPanel(new Proveedor(this));
+
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        showJPanel(new Usuario());
+
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnReporteVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteVentasActionPerformed
-        showJPanel(new ReporteDeVentas());
+
     }//GEN-LAST:event_btnReporteVentasActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
-        int opcion = JOptionPane.showConfirmDialog(
-                VtnInicio.this,
-                "¿Estás seguro de querer cerrar sesión?",
-                "Confirmar cierre",
-                JOptionPane.YES_NO_OPTION
-        );
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            JOptionPane.showMessageDialog(this, "Funcion aun no implementada.");
-        }
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnGenerarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarVentaActionPerformed
-        showJPanel(new RegistrarVenta(this));
+
     }//GEN-LAST:event_btnGenerarVentaActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -300,25 +279,13 @@ public class VtnInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        FlatMacLightLaf.setup();
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VtnInicio().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCerrarSesion;
-    private javax.swing.JButton btnGenerarVenta;
-    private javax.swing.JButton btnProductos;
-    private javax.swing.JButton btnProveedores;
-    private javax.swing.JButton btnReporteVentas;
-    private javax.swing.JButton btnUsuarios;
+    public javax.swing.JButton btnCerrarSesion;
+    public javax.swing.JButton btnGenerarVenta;
+    public javax.swing.JButton btnProductos;
+    public javax.swing.JButton btnProveedores;
+    public javax.swing.JButton btnReporteVentas;
+    public javax.swing.JButton btnUsuarios;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNbrEmpresa;
     private javax.swing.JPanel pnlBackground;
