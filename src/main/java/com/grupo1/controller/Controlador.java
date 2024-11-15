@@ -1,5 +1,6 @@
 package com.grupo1.controller;
 
+import com.grupo1.models.*;
 import com.grupo1.views.*;
 import javax.swing.JOptionPane;
 
@@ -9,9 +10,18 @@ import javax.swing.JOptionPane;
  */
 public class Controlador {
 
-    public Controlador(VtnInicio vtnInicio, VtnLogin vtnLogin) {
+    public Controlador(VtnInicio vtnInicio, VtnLogin vtnLogin, CategoriaDAO categoriaDAO, ClienteDAO clienteDAO, DetalleVentaDAO detalleDAO, MedioPagoDAO medioPagoDAO, ProductoDAO productoDAO, ProveedorDAO proveedorDAO, RolDAO rolDAO, UsuarioDAO usuarioDAO, VentaDAO ventaDAO) {
         this.vtnInicio = vtnInicio;
         this.vtnLogin = vtnLogin;
+        this.categoriaDAO = categoriaDAO;
+        this.clienteDAO = clienteDAO;
+        this.detalleDAO = detalleDAO;
+        this.medioPagoDAO = medioPagoDAO;
+        this.productoDAO = productoDAO;
+        this.proveedorDAO = proveedorDAO;
+        this.rolDAO = rolDAO;
+        this.usuarioDAO = usuarioDAO;
+        this.ventaDAO = ventaDAO;
         vtnInicio.btnGenerarVenta.addActionListener(e -> showPanelRegistro());
         vtnInicio.btnProductos.addActionListener(e -> showPanelProducto());
         vtnInicio.btnProveedores.addActionListener(e -> showPanelProveedores());
@@ -22,11 +32,11 @@ public class Controlador {
         vtnLogin.btnModerador.addActionListener(e -> iniciarSesionM());
         vtnLogin.btnCajero.addActionListener(e -> iniciarSesionC());
 
-        /*Instanciar demás paneles*/
+        /*Instanciar demás paneles y controladores*/
         //Registro
-        registrarVenta = new PanelRegistrarVenta();
+        panelRegistrarVenta = new PanelRegistrarVenta();
         vtnSeleccionar = new VtnSeleccionarProducto();
-        controlRegistro = new ControlRegistro(vtnInicio, vtnSeleccionar, registrarVenta);
+        controlRegistro = new ControlRegistro(vtnInicio, vtnSeleccionar, panelRegistrarVenta);
         //Productos
         panelProductos = new PanelProductos();
         nuevoProducto = new NuevoProducto();
@@ -73,7 +83,7 @@ public class Controlador {
     }
 
     public void showPanelRegistro() {
-        vtnInicio.showJPanel(registrarVenta);
+        vtnInicio.showJPanel(panelRegistrarVenta);
     }
 
     public void showPanelProducto() {
@@ -126,7 +136,7 @@ public class Controlador {
     private VtnLogin vtnLogin;
     private VtnInicio vtnInicio;
     //Registro
-    private PanelRegistrarVenta registrarVenta;
+    private PanelRegistrarVenta panelRegistrarVenta;
     private ControlRegistro controlRegistro;
     //Productos
     private PanelProductos panelProductos;
@@ -152,4 +162,14 @@ public class Controlador {
     private ControlReporte controlReporte;
     //Rol
     private String rol;
+    //DAO
+    private CategoriaDAO categoriaDAO;
+    private ClienteDAO clienteDAO;
+    private DetalleVentaDAO detalleDAO;
+    private MedioPagoDAO medioPagoDAO;
+    private ProductoDAO productoDAO;
+    private ProveedorDAO proveedorDAO;
+    private RolDAO rolDAO;
+    private UsuarioDAO usuarioDAO;
+    private VentaDAO ventaDAO;
 }

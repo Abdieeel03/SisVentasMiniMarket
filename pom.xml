@@ -38,7 +38,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.grupo1.views.VtnInicio</mainClass> <!-- Asegúrate de especificar tu clase principal aquí -->
+                            <mainClass>com.grupo1.main.Main</mainClass> <!-- Asegúrate de especificar tu clase principal aquí -->
                         </manifest>
                     </archive>
                     <descriptorRefs>

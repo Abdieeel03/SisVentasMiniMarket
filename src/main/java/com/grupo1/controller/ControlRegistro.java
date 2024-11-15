@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
  * @author Abdiel
  */
 public class ControlRegistro {
-
+    
     public ControlRegistro(VtnInicio vtnInicio, VtnSeleccionarProducto vtnSeleccionar, PanelRegistrarVenta panelRegistrarVenta) {
         this.vtnInicio = vtnInicio;
         this.vtnSeleccionar = vtnSeleccionar;
@@ -20,32 +20,33 @@ public class ControlRegistro {
                 buscarProducto();
             }
         });
-        vtnSeleccionar.btnWa.addActionListener(e -> seleccionarProducto());
+        vtnSeleccionar.btnPrueba.addActionListener(e -> seleccionarProducto());
         panelRegistrarVenta.btnRegistrarVenta.addActionListener(e -> registrarVenta());
         panelRegistrarVenta.btnCancelar.addActionListener(e -> botonCancelar());
     }
-
+    
     public void seleccionarProducto() {
         System.out.println("PROBANDO");
         vtnSeleccionar.setVisible(false);
         panelRegistrarVenta.txtNombreProducto.setText("Probando");
     }
-
+    
     public void buscarProducto() {
         vtnSeleccionar.setVisible(true);
     }
-
+    
     public void registrarVenta() {
-
+        
     }
-
+    
     public void botonCancelar() {
-
+        vtnInicio.showJPanel(new PanelPrincipal());
+        panelRegistrarVenta.txtNombreProducto.setText("");
     }
 
     /*Declaracion de variables*/
     private VtnInicio vtnInicio;
     private VtnSeleccionarProducto vtnSeleccionar;
     private PanelRegistrarVenta panelRegistrarVenta;
-
+    
 }

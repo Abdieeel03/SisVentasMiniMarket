@@ -7,12 +7,12 @@ import com.grupo1.views.*;
  */
 public class ControlReporte {
 
-    public ControlReporte(VtnInicio vtnInicio, ReporteDeVentas reporteDeVentas) {
+    public ControlReporte(VtnInicio vtnInicio, ReporteDeVentas panelReporte) {
         this.vtnInicio = vtnInicio;
-        this.reporteDeVentas = reporteDeVentas;
+        this.panelReporte = panelReporte;
     }
     
     /*Declaracion de variables*/
     private VtnInicio vtnInicio;
-    private ReporteDeVentas reporteDeVentas;
+    private ReporteDeVentas panelReporte;
 }

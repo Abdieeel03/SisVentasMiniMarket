@@ -7,6 +7,7 @@ import com.grupo1.views.*;
  * @author Abdiel
  */
 public class ControlUsuario {
+    
     private VtnInicio vtnInicio;
     private PanelUsuario panelUsuario;
     private BuscarUsuario buscarUsuario;
@@ -19,6 +20,21 @@ public class ControlUsuario {
         this.buscarUsuario = buscarUsuario;
         this.nuevoUsuario = nuevoUsuario;
         this.editarUsuario = editarUsuario;
+        panelUsuario.btnNuevoUsuario.addActionListener(e -> showNuevoUsuario());
+        panelUsuario.btnBuscarUsuario.addActionListener(e -> showBuscarUsuario());
+        nuevoUsuario.btnCancelar.addActionListener(e -> accionCancelar());
+        buscarUsuario.btnCancelar.addActionListener(e -> accionCancelar());
+    }
+    public void showNuevoUsuario() {
+        vtnInicio.showJPanel(nuevoUsuario);
+    }
+
+    public void showBuscarUsuario() {
+        vtnInicio.showJPanel(buscarUsuario);
+    }
+
+    public void accionCancelar() {
+        vtnInicio.showJPanel(panelUsuario);
     }
     
 }
