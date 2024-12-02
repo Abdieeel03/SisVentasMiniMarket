@@ -22,7 +22,7 @@ public class NuevoUsuario extends javax.swing.JPanel {
         pnlPantalla = new javax.swing.JPanel();
         pnlForm = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         lblRol = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
@@ -69,7 +69,7 @@ public class NuevoUsuario extends javax.swing.JPanel {
                             .addComponent(lblNombre))
                         .addGap(29, 29, 29)
                         .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtID)
+                            .addComponent(txtNombre)
                             .addComponent(txtUsuario)
                             .addComponent(cmbRol, 0, 463, Short.MAX_VALUE)
                             .addComponent(txtContraseña)))
@@ -83,7 +83,7 @@ public class NuevoUsuario extends javax.swing.JPanel {
                 .addGap(16, 16, 16)
                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRol)
@@ -160,6 +160,12 @@ public class NuevoUsuario extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    public void limpiar() {
+        txtContraseña.setText("");
+        txtNombre.setText("");
+        txtUsuario.setText("");
+        txtaDescripcion.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCancelar;
@@ -174,7 +180,7 @@ public class NuevoUsuario extends javax.swing.JPanel {
     private javax.swing.JPanel pnlForm;
     private javax.swing.JPanel pnlPantalla;
     public javax.swing.JPasswordField txtContraseña;
-    public javax.swing.JTextField txtID;
+    public javax.swing.JTextField txtNombre;
     public javax.swing.JTextField txtUsuario;
     public javax.swing.JTextArea txtaDescripcion;
     // End of variables declaration//GEN-END:variables

@@ -2,6 +2,7 @@ package com.grupo1.controller;
 
 import com.grupo1.models.*;
 import com.grupo1.views.*;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,76 +11,10 @@ import javax.swing.JOptionPane;
  */
 public class Controlador {
 
-    public Controlador(VtnInicio vtnInicio, VtnLogin vtnLogin, CategoriaDAO categoriaDAO, ClienteDAO clienteDAO, DetalleVentaDAO detalleDAO, MedioPagoDAO medioPagoDAO, ProductoDAO productoDAO, ProveedorDAO proveedorDAO, RolDAO rolDAO, UsuarioDAO usuarioDAO, VentaDAO ventaDAO) {
-        this.vtnInicio = vtnInicio;
-        this.vtnLogin = vtnLogin;
-        this.categoriaDAO = categoriaDAO;
-        this.clienteDAO = clienteDAO;
-        this.detalleDAO = detalleDAO;
-        this.medioPagoDAO = medioPagoDAO;
-        this.productoDAO = productoDAO;
-        this.proveedorDAO = proveedorDAO;
-        this.rolDAO = rolDAO;
-        this.usuarioDAO = usuarioDAO;
-        this.ventaDAO = ventaDAO;
-        vtnInicio.btnGenerarVenta.addActionListener(e -> showPanelRegistro());
-        vtnInicio.btnProductos.addActionListener(e -> showPanelProducto());
-        vtnInicio.btnProveedores.addActionListener(e -> showPanelProveedores());
-        vtnInicio.btnUsuarios.addActionListener(e -> showPanelUsuarios());
-        vtnInicio.btnReporteVentas.addActionListener(e -> showPanelReporte());
-        vtnInicio.btnCerrarSesion.addActionListener(e -> cerrarSesion());
-        vtnLogin.btnAdministrador.addActionListener(e -> iniciarSesionA());
-        vtnLogin.btnModerador.addActionListener(e -> iniciarSesionM());
-        vtnLogin.btnCajero.addActionListener(e -> iniciarSesionC());
-
-        /*Instanciar demás paneles y controladores*/
-        //Registro
-        panelRegistrarVenta = new PanelRegistrarVenta();
-        vtnSeleccionar = new VtnSeleccionarProducto();
-        controlRegistro = new ControlRegistro(vtnInicio, vtnSeleccionar, panelRegistrarVenta);
-        //Productos
-        panelProductos = new PanelProductos();
-        nuevoProducto = new NuevoProducto();
-        buscarProducto = new BuscarProducto();
-        editarProducto = new EditarProducto();
-        controlProducto = new ControlProducto(vtnInicio, panelProductos, buscarProducto, nuevoProducto, editarProducto);
-        //Proveedor
-        panelProveedor = new PanelProveedor();
-        nuevoProveedor = new NuevoProveedor();
-        buscarProveedor = new BuscarProveedor();
-        editarProveedor = new EditarProveedor();
-        controlProveedor = new ControlProveedor(vtnInicio, panelProveedor, buscarProveedor, nuevoProveedor, editarProveedor);
-        //Usuarios
-        panelUsuario = new PanelUsuario();
-        nuevoUsuario = new NuevoUsuario();
-        buscarUsuario = new BuscarUsuario();
-        editarUsuario = new EditarUsuario();
-        controlUsuario = new ControlUsuario(vtnInicio, panelUsuario, buscarUsuario, nuevoUsuario, editarUsuario);
-        //Reporte
-        panelReporte = new ReporteDeVentas();
-        controlReporte = new ControlReporte(vtnInicio, panelReporte);
-
-    }
-
     public void iniciarEjecucion() {
         vtnLogin.setVisible(false);
         vtnInicio.showJPanel(new PanelPrincipal());
         vtnInicio.setVisible(true);
-    }
-
-    public void iniciarSesionA() {
-        rol = "A";
-        iniciarEjecucion();
-    }
-
-    public void iniciarSesionM() {
-        rol = "M";
-        iniciarEjecucion();
-    }
-
-    public void iniciarSesionC() {
-        rol = "C";
-        iniciarEjecucion();
     }
 
     public void showPanelRegistro() {
@@ -116,6 +51,65 @@ public class Controlador {
             return;
         }
         vtnInicio.showJPanel(panelReporte);
+    }
+
+    public void verificarLogin() {
+        try {
+
+            if (vtnLogin.txtUsuario.getText().isEmpty() || vtnLogin.txtContra.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Datos Incorrectos!");
+                vtnLogin.txtUsuario.requestFocus();
+                return;
+            }
+
+            List<Usuario> usuarios = usuarioDAO.read();
+
+            boolean usuarioEncontrado = false;
+            String rol = "";
+
+            for (Usuario user : usuarios) {
+                if (user.getUsuario().equals(vtnLogin.txtUsuario.getText())) {
+                    if (user.getContraseña().equals(vtnLogin.txtContra.getText())) {
+                        usuarioEncontrado = true;
+                        rol = obtenerRol(user.getIdRol());
+                        break;
+                    }
+                }
+            }
+
+            if (usuarioEncontrado) {
+                switch (rol) {
+                    case "Administrador":
+                        this.rol = "A";
+                        break;
+                    case "Moderador":
+                        this.rol = "M";
+                        break;
+                    case "Cajero":
+                        this.rol = "C";
+                        break;
+                    default:
+                        System.out.println("Rol desconocido.");
+                }
+                iniciarEjecucion();
+            } else {
+                JOptionPane.showMessageDialog(null, "Datos Incorrectos!");
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private String obtenerRol(int idRol) {
+        switch (idRol) {
+            case 1:
+                return "Administrador";
+            case 2:
+                return "Moderador";
+            case 3:
+                return "Cajero";
+            default:
+                return "Rol desconocido";
+        }
     }
 
     public void cerrarSesion() {
@@ -172,4 +166,53 @@ public class Controlador {
     private RolDAO rolDAO;
     private UsuarioDAO usuarioDAO;
     private VentaDAO ventaDAO;
+
+    //Constructor Principal
+    public Controlador(VtnInicio vtnInicio, VtnLogin vtnLogin, CategoriaDAO categoriaDAO, ClienteDAO clienteDAO, DetalleVentaDAO detalleDAO, MedioPagoDAO medioPagoDAO, ProductoDAO productoDAO, ProveedorDAO proveedorDAO, RolDAO rolDAO, UsuarioDAO usuarioDAO, VentaDAO ventaDAO) {
+        this.vtnInicio = vtnInicio;
+        this.vtnLogin = vtnLogin;
+        this.categoriaDAO = categoriaDAO;
+        this.clienteDAO = clienteDAO;
+        this.detalleDAO = detalleDAO;
+        this.medioPagoDAO = medioPagoDAO;
+        this.productoDAO = productoDAO;
+        this.proveedorDAO = proveedorDAO;
+        this.rolDAO = rolDAO;
+        this.usuarioDAO = usuarioDAO;
+        this.ventaDAO = ventaDAO;
+        vtnLogin.btnIngresar.addActionListener(e -> verificarLogin());
+        vtnInicio.btnGenerarVenta.addActionListener(e -> showPanelRegistro());
+        vtnInicio.btnProductos.addActionListener(e -> showPanelProducto());
+        vtnInicio.btnProveedores.addActionListener(e -> showPanelProveedores());
+        vtnInicio.btnUsuarios.addActionListener(e -> showPanelUsuarios());
+        vtnInicio.btnReporteVentas.addActionListener(e -> showPanelReporte());
+        vtnInicio.btnCerrarSesion.addActionListener(e -> cerrarSesion());
+
+        /*Instanciar demás paneles y controladores*/
+        //Registro
+        panelRegistrarVenta = new PanelRegistrarVenta();
+        vtnSeleccionar = new VtnSeleccionarProducto();
+        controlRegistro = new ControlRegistro(vtnInicio, vtnSeleccionar, panelRegistrarVenta);
+        //Productos
+        panelProductos = new PanelProductos();
+        nuevoProducto = new NuevoProducto();
+        buscarProducto = new BuscarProducto();
+        editarProducto = new EditarProducto();
+        controlProducto = new ControlProducto(vtnInicio, panelProductos, buscarProducto, nuevoProducto, editarProducto);
+        //Proveedor
+        panelProveedor = new PanelProveedor();
+        nuevoProveedor = new NuevoProveedor();
+        buscarProveedor = new BuscarProveedor();
+        editarProveedor = new EditarProveedor();
+        controlProveedor = new ControlProveedor(vtnInicio, panelProveedor, buscarProveedor, nuevoProveedor, editarProveedor);
+        //Usuarios
+        panelUsuario = new PanelUsuario();
+        nuevoUsuario = new NuevoUsuario();
+        buscarUsuario = new BuscarUsuario();
+        editarUsuario = new EditarUsuario();
+        controlUsuario = new ControlUsuario(vtnInicio, panelUsuario, buscarUsuario, nuevoUsuario, editarUsuario, usuarioDAO, rolDAO);
+        //Reporte
+        panelReporte = new ReporteDeVentas();
+        controlReporte = new ControlReporte(vtnInicio, panelReporte);
+    }
 }

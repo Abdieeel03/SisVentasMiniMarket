@@ -1,18 +1,22 @@
 package com.grupo1.models;
 
+import java.util.List;
+
 public class Categoria {
 
-    private String idCategoria, nombre;
+    private int id_categoria;
+    private String nombre;
+    private List<Producto> productos;
 
     public Categoria() {
     }
 
-    public String getIdCategoria() {
-        return idCategoria;
+    public int getIdCategoria() {
+        return id_categoria;
     }
 
-    public void setIdCategoria(String idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setIdCategoria(int idCategoria) {
+        this.id_categoria = idCategoria;
     }
 
     public String getNombre() {
@@ -21,6 +25,14 @@ public class Categoria {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
 
 }

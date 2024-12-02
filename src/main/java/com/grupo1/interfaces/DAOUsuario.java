@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface DAOUsuario {
 
-    public void create(Usuario usuario) throws Exception;
+    public void create(Usuario usuario, String nombreRol) throws Exception;
 
     public List<Usuario> read() throws Exception;
 
     public void update(Usuario usuario) throws Exception;
 
-    public void delete(Usuario usuario) throws Exception;
+    public void delete(int idUsuario) throws Exception;
 }

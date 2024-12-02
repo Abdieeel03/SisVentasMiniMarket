@@ -2,16 +2,18 @@ package com.grupo1.models;
 
 public class Usuario {
 
-    private String idUsuario, nombre, idRol, usuario, contraseña, descripcion;
+    private String nombre, usuario, contraseña, descripcion;
+    private int idRol, idUsuario;
+    private Rol rol;
 
     public Usuario() {
     }
 
-    public String getIdUsuario() {
+    public int getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
+    public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -23,11 +25,11 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getIdRol() {
+    public int getIdRol() {
         return idRol;
     }
 
-    public void setIdRol(String idRol) {
+    public void setIdRol(int idRol) {
         this.idRol = idRol;
     }
 
@@ -53,6 +55,14 @@ public class Usuario {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
 }

@@ -14,11 +14,11 @@ public class Main {
 
     public static void main(String[] args) {
         FlatMacLightLaf.setup();
-        
+
         /*Ventanas*/
         VtnInicio vtnInicio = new VtnInicio();
         VtnLogin vtnLogin = new VtnLogin();
-        
+
         /*Inicializacion DAOs*/
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         ClienteDAO clienteDAO = new ClienteDAO();
@@ -29,10 +29,10 @@ public class Main {
         RolDAO rolDAO = new RolDAO();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         VentaDAO ventaDAO = new VentaDAO();
-        
+
         /*Controlador Principal*/
         Controlador controlador = new Controlador(vtnInicio, vtnLogin, categoriaDAO, clienteDAO, detalleDAO, medioPagoDAO, productoDAO, proveedorDAO, rolDAO, usuarioDAO, ventaDAO);
-        
+
         /*Mostrar Ventana*/
         vtnLogin.setVisible(true);
     }

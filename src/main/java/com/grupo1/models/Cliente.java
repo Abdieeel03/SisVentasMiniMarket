@@ -1,8 +1,11 @@
 package com.grupo1.models;
 
+import java.util.List;
+
 public class Cliente {
 
     private String id_cliente, nombre;
+    private List<Venta> ventas;
 
     public Cliente() {
     }
@@ -21,6 +24,14 @@ public class Cliente {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public List<Venta> getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(List<Venta> ventas) {
+        this.ventas = ventas;
     }
 
 }

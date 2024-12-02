@@ -35,11 +35,11 @@ public class BuscarUsuario extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Nombre", "Rol", "Usuario"
+                "id", "Nombre", "Rol", "Usuario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -49,8 +49,10 @@ public class BuscarUsuario extends javax.swing.JPanel {
         jScrollPane1.setViewportView(table);
         if (table.getColumnModel().getColumnCount() > 0) {
             table.getColumnModel().getColumn(0).setResizable(false);
-            table.getColumnModel().getColumn(1).setPreferredWidth(10);
+            table.getColumnModel().getColumn(1).setResizable(false);
             table.getColumnModel().getColumn(2).setResizable(false);
+            table.getColumnModel().getColumn(2).setPreferredWidth(10);
+            table.getColumnModel().getColumn(3).setResizable(false);
         }
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N

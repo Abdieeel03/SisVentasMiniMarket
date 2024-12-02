@@ -9,11 +9,12 @@ import java.util.List;
  */
 public interface DAOCategoria {
 
-    public void create(Categoria categoria) throws Exception;
+    //public void create(Categoria categoria) throws Exception;
 
     public List<Categoria> read() throws Exception;
 
-    public void update(Categoria categoria) throws Exception;
+    //public void update(Categoria categoria) throws Exception;
 
-    public void delete(Categoria categoria) throws Exception;
+    //public void delete(Categoria categoria) throws Exception;
+
 }

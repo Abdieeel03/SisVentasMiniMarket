@@ -1,10 +1,15 @@
 package com.grupo1.models;
 
+import java.util.List;
+
 public class Producto {
 
     private String idProducto, nombre, idCategoria, idProveedor;
     private double precioCompra, precioVenta;
     private int stock;
+    private Categoria categoria;
+    private Proveedor proveedor;
+    private List<DetalleVenta> detalleVentas;
 
     public Producto() {
     }
@@ -63,6 +68,30 @@ public class Producto {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public List<DetalleVenta> getDetalleVentas() {
+        return detalleVentas;
+    }
+
+    public void setDetalleVentas(List<DetalleVenta> detalleVentas) {
+        this.detalleVentas = detalleVentas;
     }
 
 }
