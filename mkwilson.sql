@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2024 a las 16:20:00
+-- Tiempo de generación: 04-12-2024 a las 20:59:55
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -33,6 +33,27 @@ CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`id_categoria`, `nombre`) VALUES
+(8, 'Accesorios'),
+(1, 'Alimentos'),
+(15, 'Automotriz'),
+(2, 'Bebidas'),
+(7, 'Calzado'),
+(13, 'Deportes'),
+(4, 'Electrodomésticos'),
+(9, 'Farmacia'),
+(11, 'Ferretería'),
+(10, 'Juguetería'),
+(3, 'Limpieza'),
+(14, 'Mascotas'),
+(12, 'Papelería'),
+(6, 'Ropa'),
+(5, 'Tecnología');
 
 -- --------------------------------------------------------
 
@@ -100,6 +121,43 @@ CREATE TABLE `proveedor` (
   `telefono` varchar(15) DEFAULT NULL,
   `paginaWeb` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `proveedor`
+--
+
+INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `direccion`, `telefono`, `paginaWeb`) VALUES
+('1012345665', 'MultiProductos', 'Av. El Sol 165 Chorrillos', '987123231', ''),
+('1012345678', 'Distribuidora Alimentos SAC', 'Av. Gran Mercado 123, Lima', '987654311', 'www.alimentosdistrib.com'),
+('1012346789', 'Electro Hogar', 'Av. Tecnología 123, Lima', '987654320', 'www.electrohogar.com'),
+('1012348910', 'Bebidas del Norte', 'Av. Hidratación 123, Piura', '987654314', 'www.bebidasnorte.com'),
+('1012839465', 'Estilo Andino', 'Calle Cultura 456, Cusco', '987654327', 'www.estiloandino.com'),
+('1012847395', 'Complementos SAC', 'Av. Estilo 123, Lima', '987654332', 'www.complementossac.com'),
+('1012948573', 'Mascota Feliz', 'Jr. Patitas 789, Chiclayo', '987654340', 'www.mascotafeliz.com'),
+('1013459821', 'Innovación SAC', 'Jr. Avance 789, Ica', '987654322', 'www.innovacionsac.com'),
+('1013462897', 'Brillo y Limpieza', 'Jr. Brillante 789, Arequipa', '987654319', 'www.brillolimpieza.com'),
+('1013847592', 'Pet Distribuidor', 'Av. Mascotas 123, Lima', '987654338', 'www.petdistribuidor.com'),
+('1013857294', 'Tendencias SAC', 'Jr. Pasarela 789, Trujillo', '987654328', 'www.tendenciassac.com'),
+('1013859472', 'Innovación Andina', 'Jr. Software 789, Cusco', '987654325', 'www.innovacionandina.com'),
+('1013948572', 'Accesorios Andinos', 'Calle Accesorios 456, Arequipa', '987654333', 'www.accesoriosandinos.com'),
+('1014567892', 'Elixir del Sur', 'Calle Bebidas 456, Tacna', '987654315', 'www.elixirsur.com'),
+('1014758392', 'Gadget Central', 'Calle Tecnología 456, Arequipa', '987654324', 'www.gadgetcentral.com'),
+('1014759263', 'Moda Urbana', 'Av. Fashion 123, Lima', '987654326', 'www.modaurbana.com'),
+('1014857936', 'Detalles Únicos', 'Jr. Originalidad 789, Chiclayo', '987654334', 'www.detallesunicos.com'),
+('1014957382', 'Footwear World', 'Calle Pisadas 456, Lima', '987654330', 'www.footwearworld.com'),
+('1015748392', 'Salud Total SAC', 'Jr. Medicinas 789, Lima', '987654337', 'www.saludtotalsac.com'),
+('1015823947', 'Andes Shoes', 'Jr. Montañas 789, Cusco', '987654331', 'www.andesshoes.com'),
+('1016789123', 'Sabores Andinos', 'Jr. Tradición 789, Arequipa', '987654313', 'www.saboresandinos.com'),
+('1016789456', 'Refrescos Andinos', 'Jr. Sierra 789, Huancayo', '987654316', 'www.refrescosandinos.com'),
+('1017382954', 'Zapatos del Sur', 'Av. Calzado 123, Arequipa', '987654329', 'www.zapatosdelsur.com'),
+('1017638492', 'Distribuidora Higiene', 'Calle Limpieza 456, Trujillo', '987654318', 'www.higienedistrib.com'),
+('1018394752', 'FarmAndes', 'Calle Bienestar 456, Cusco', '987654336', 'www.farmandes.com'),
+('1018934765', 'Productos Limpieza SAC', 'Av. Aseo 123, Lima', '987654317', 'www.limpiezasac.com'),
+('1018945637', 'TecnoDistribuidor', 'Calle Futuro 456, Chiclayo', '987654321', 'www.tecnodistribuidor.com'),
+('1019283746', 'Tech World', 'Av. Digital 123, Lima', '987654323', 'www.techworld.com'),
+('1019374856', 'Hogar Animal', 'Calle Amigos 456, Arequipa', '987654339', 'www.hogaranimal.com'),
+('1019475832', 'Medicinas del Norte', 'Av. Salud 123, Piura', '987654335', 'www.medicinasnorte.com'),
+('1019876543', 'Comercializadora Gourmet', 'Calle Central 456, Cusco', '987654312', 'www.gourmetdistrib.com');
 
 -- --------------------------------------------------------
 
@@ -241,7 +299,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `detalleventa`
