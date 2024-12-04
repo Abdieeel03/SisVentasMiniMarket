@@ -67,17 +67,19 @@ public class UsuarioDAO extends Database implements DAOUsuario {
         return usuarios;
     }
 
-    public void update(Usuario usuario) throws Exception {
+    public void update(Usuario usuario, String nombreRol, int idUsuario) throws Exception {
         try {
+            System.out.println(idUsuario);
             this.conectar();
             PreparedStatement st = this.conexion.prepareStatement(
                     "UPDATE usuario SET nombre = ?, id_rol = ?, usuario = ?, descripcion = ? WHERE id_usuario = ?;"
             );
+            usuario.setIdRol(obtenerIdRolPorNombre(nombreRol));
             st.setString(1, usuario.getNombre());
             st.setInt(2, usuario.getIdRol());
             st.setString(3, usuario.getUsuario());
             st.setString(4, usuario.getDescripcion());
-            st.setInt(5, usuario.getIdUsuario());
+            st.setInt(5, idUsuario);
             st.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

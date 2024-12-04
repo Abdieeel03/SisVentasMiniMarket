@@ -14,7 +14,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -31,6 +35,7 @@ public class ControlUsuario {
 
     public void showBuscarUsuario() throws Exception {
         llenarTabla();
+        buscarUsuario.txtBusqueda.setText("");
         vtnInicio.showJPanel(buscarUsuario);
     }
 
@@ -58,7 +63,38 @@ public class ControlUsuario {
         usuario.setUsuario(nuevoUsuario.txtUsuario.getText());
         usuario.setContraseña(nuevoUsuario.txtContraseña.getText());
         usuario.setDescripcion(nuevoUsuario.txtaDescripcion.getText());
-        usuarioDAO.create(usuario, nombreRol);
+        try {
+            usuarioDAO.create(usuario, nombreRol);
+            vtnInicio.showJPanel(panelUsuario);
+            nuevoUsuario.limpiar();
+            JOptionPane.showMessageDialog(vtnInicio, "Usuario creado correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(vtnInicio, "Ocurrio un error inesperado", "AVISO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void actualizarRegistro() {
+        if (editarUsuario.txtNombre.getText().isEmpty() || editarUsuario.txtUsuario.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese todos los datos!");
+            editarUsuario.txtNombre.requestFocus();
+            return;
+        }
+        Usuario usuario = new Usuario();
+        usuario.setNombre(editarUsuario.txtNombre.getText());
+        String nombreRol = editarUsuario.cmbRol.getSelectedItem().toString();
+        usuario.setUsuario(editarUsuario.txtUsuario.getText());
+        usuario.setDescripcion(editarUsuario.txtaDescripcion.getText());
+        System.out.println(idUsuario);
+        try {
+            usuarioDAO.update(usuario, nombreRol, idUsuario);
+            vtnInicio.showJPanel(panelUsuario);
+            editarUsuario.limpiar();
+            JOptionPane.showMessageDialog(vtnInicio, "Usuario actualizado correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(vtnInicio, "Ocurrio un error inesperado", "AVISO", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void eliminarRegistro() {
@@ -69,6 +105,21 @@ public class ControlUsuario {
             editarUsuario.limpiar();
         } catch (Exception ex) {
             Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void buscarRegistro() {
+        DefaultTableModel model = (DefaultTableModel) buscarUsuario.table.getModel();
+        TableRowSorter<DefaultTableModel> sorter = (TableRowSorter<DefaultTableModel>) buscarUsuario.table.getRowSorter();
+        if (sorter == null) {
+            sorter = new TableRowSorter<>(model);
+            buscarUsuario.table.setRowSorter(sorter);
+        }
+        String textoBusqueda = buscarUsuario.txtBusqueda.getText().trim();
+        if (textoBusqueda.isEmpty()) {
+            sorter.setRowFilter(null);
+        } else {
+            sorter.setRowFilter(RowFilter.regexFilter("(?i)" + textoBusqueda, 1));
         }
     }
 
@@ -99,6 +150,8 @@ public class ControlUsuario {
             object[3] = u.getUsuario();
             model.addRow(object);
         }
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+        buscarUsuario.table.setRowSorter(sorter);
     }
 
     public void llenarDatosEditar(int fila) {
@@ -184,6 +237,20 @@ public class ControlUsuario {
                 }
             }
         });
+        buscarUsuario.txtBusqueda.getDocument().addDocumentListener(new DocumentListener() {
+            public void insertUpdate(DocumentEvent e) {
+                buscarRegistro();
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                buscarRegistro();
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                buscarRegistro();
+            }
+
+        });
         editarUsuario.cmbRol.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
@@ -195,5 +262,7 @@ public class ControlUsuario {
             }
         });
         editarUsuario.btnEliminar.addActionListener(e -> eliminarRegistro());
+        editarUsuario.btnActualizar.addActionListener(e -> actualizarRegistro());
+        editarUsuario.btnCancelar.addActionListener(e -> accionCancelar());
     }
 }

@@ -13,7 +13,7 @@ public interface DAOUsuario {
 
     public List<Usuario> read() throws Exception;
 
-    public void update(Usuario usuario) throws Exception;
+    public void update(Usuario usuario, String nombreRol, int idUsuario) throws Exception;
 
     public void delete(int idUsuario) throws Exception;
 }

@@ -74,10 +74,11 @@ com\grupo1\views\ReporteDeVentas.class
 com\grupo1\views\PanelProveedor$1.class
 com\grupo1\interfaces\DAOCategoria.class
 com\grupo1\views\NuevoProveedor$1.class
-com\grupo1\views\PanelProductos$1.class
 com\grupo1\views\VtnInicio$1.class
+com\grupo1\views\PanelProductos$1.class
 com\grupo1\views\NuevoUsuario$1.class
 com\grupo1\views\EditarProveedor$3.class
+com\grupo1\controller\ControlUsuario$4.class
 com\grupo1\interfaces\DAOProveedor.class
 com\grupo1\views\PanelRegistrarVenta$3.class
 com\grupo1\views\BuscarUsuario.class
