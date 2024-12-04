@@ -97,14 +97,22 @@ public class ControlUsuario {
     }
 
     public void eliminarRegistro() {
-        try {
-            usuarioDAO.delete(idUsuario);
-            vtnInicio.showJPanel(panelUsuario);
-            JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
-            editarUsuario.limpiar();
-        } catch (Exception ex) {
-            Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(vtnInicio, "Ocurrio un error inesperado", "AVISO", JOptionPane.ERROR_MESSAGE);
+        int opcion = JOptionPane.showConfirmDialog(vtnInicio,
+                "¿Estás seguro de eliminar este usuario?",
+                "AVISO",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            try {
+                usuarioDAO.delete(idUsuario);
+                vtnInicio.showJPanel(panelUsuario);
+                JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+                editarUsuario.limpiar();
+            } catch (Exception ex) {
+                Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(vtnInicio, "Ocurrio un error inesperado", "AVISO", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
@@ -207,7 +215,7 @@ public class ControlUsuario {
                 Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        
+
         nuevoUsuario.btnCancelar.addActionListener(e -> accionCancelar());
         nuevoUsuario.btnRegistrar.addActionListener(e -> {
             try {
@@ -225,7 +233,7 @@ public class ControlUsuario {
                 }
             }
         });
-        
+
         buscarUsuario.btnCancelar.addActionListener(e -> accionCancelar());
         buscarUsuario.table.addMouseListener(new MouseAdapter() {
             @Override
@@ -250,7 +258,7 @@ public class ControlUsuario {
             }
 
         });
-        
+
         editarUsuario.cmbRol.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {

@@ -94,15 +94,23 @@ public class ControlProveedor {
     }
 
     public void eliminarRegistro() {
-        try {
-            Proveedor proveedor = new Proveedor();
-            proveedor.setIdProveedor(editarProveedor.txtRUC.getText());
-            proveedorDAO.delete(proveedor);
-            vtnInicio.showJPanel(panelProveedor);
-            JOptionPane.showMessageDialog(null, "Proveedor eliminado correctamente!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception ex) {
-            Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(vtnInicio, "Ocurrio un error inesperado", "AVISO", JOptionPane.ERROR_MESSAGE);
+        int opcion = JOptionPane.showConfirmDialog(vtnInicio,
+                "¿Estás seguro de querer eliminar este proveedor?",
+                "AVISO",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            try {
+                Proveedor proveedor = new Proveedor();
+                proveedor.setIdProveedor(editarProveedor.txtRUC.getText());
+                proveedorDAO.delete(proveedor);
+                vtnInicio.showJPanel(panelProveedor);
+                JOptionPane.showMessageDialog(null, "Proveedor eliminado correctamente!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(vtnInicio, "Ocurrio un error inesperado", "AVISO", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 

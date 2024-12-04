@@ -2,6 +2,8 @@ package com.grupo1.controller;
 
 import com.grupo1.models.*;
 import com.grupo1.views.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -121,6 +123,7 @@ public class Controlador {
 
         if (opcion == JOptionPane.YES_OPTION) {
             vtnInicio.setVisible(false);
+            vtnLogin.limpiar();
             vtnLogin.setVisible(true);
         }
     }
@@ -187,6 +190,22 @@ public class Controlador {
         vtnInicio.btnUsuarios.addActionListener(e -> showPanelUsuarios());
         vtnInicio.btnReporteVentas.addActionListener(e -> showPanelReporte());
         vtnInicio.btnCerrarSesion.addActionListener(e -> cerrarSesion());
+        vtnLogin.txtUsuario.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    verificarLogin();
+                }
+            }
+        });
+        vtnLogin.txtContra.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    verificarLogin();
+                }
+            }
+        });
 
         /*Instanciar demás paneles y controladores*/
         //Registro

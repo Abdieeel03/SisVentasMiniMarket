@@ -3,6 +3,8 @@ package com.grupo1.views;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -42,6 +44,12 @@ public class VtnInicio extends javax.swing.JFrame {
         pnlPantalla.revalidate();
         pnlPantalla.repaint();
     }
+    
+    @Override
+    public Image getIconImage(){
+      Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("logoIcono2.png"));
+      return retValue;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,6 +73,8 @@ public class VtnInicio extends javax.swing.JFrame {
         pnlPantalla = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MinimarketWilson");
+        setIconImage(getIconImage());
         setMinimumSize(new java.awt.Dimension(1280, 730));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {

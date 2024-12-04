@@ -13,6 +13,11 @@ public class VtnLogin extends javax.swing.JFrame {
     public VtnLogin() {
         initComponents();
     }
+    
+    public void limpiar(){
+        txtUsuario.setText("");
+        txtContra.setText("");
+    }
 
 
     @SuppressWarnings("unchecked")

@@ -1,4 +1,5 @@
 com\grupo1\views\PanelUsuario.class
+com\grupo1\controller\Controlador$2.class
 com\grupo1\interfaces\DAOCliente.class
 com\grupo1\models\Proveedor.class
 com\grupo1\interfaces\DAOMedioPago.class
@@ -56,6 +57,7 @@ com\grupo1\controller\ControlUsuario$2.class
 com\grupo1\models\ProveedorDAO.class
 com\grupo1\views\BuscarProveedor$1.class
 com\grupo1\models\Rol.class
+com\grupo1\controller\Controlador$1.class
 com\grupo1\controller\ControlProveedor$2.class
 com\grupo1\controller\ControlUsuario.class
 com\grupo1\main\Main.class
@@ -75,8 +77,8 @@ com\grupo1\views\ReporteDeVentas.class
 com\grupo1\views\PanelProveedor$1.class
 com\grupo1\interfaces\DAOCategoria.class
 com\grupo1\views\NuevoProveedor$1.class
-com\grupo1\views\VtnInicio$1.class
 com\grupo1\views\PanelProductos$1.class
+com\grupo1\views\VtnInicio$1.class
 com\grupo1\views\NuevoUsuario$1.class
 com\grupo1\views\EditarProveedor$3.class
 com\grupo1\controller\ControlUsuario$4.class
