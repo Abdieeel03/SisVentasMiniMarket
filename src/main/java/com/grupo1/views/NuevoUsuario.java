@@ -50,6 +50,7 @@ public class NuevoUsuario extends javax.swing.JPanel {
 
         lblDescripcion.setText("Descripción:");
 
+        txtaDescripcion.setEditable(false);
         txtaDescripcion.setColumns(20);
         txtaDescripcion.setRows(5);
         jScrollPane1.setViewportView(txtaDescripcion);

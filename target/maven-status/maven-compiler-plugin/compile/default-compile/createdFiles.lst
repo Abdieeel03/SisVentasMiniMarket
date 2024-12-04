@@ -56,6 +56,7 @@ com\grupo1\controller\ControlUsuario$2.class
 com\grupo1\models\ProveedorDAO.class
 com\grupo1\views\BuscarProveedor$1.class
 com\grupo1\models\Rol.class
+com\grupo1\controller\ControlProveedor$2.class
 com\grupo1\controller\ControlUsuario.class
 com\grupo1\main\Main.class
 com\grupo1\views\EditarProveedor$1.class
@@ -90,6 +91,7 @@ com\grupo1\views\EditarProveedor$2.class
 com\grupo1\controller\ControlRegistro.class
 com\grupo1\views\PanelRegistrarVenta$4.class
 com\grupo1\controller\Controlador.class
+com\grupo1\controller\ControlProveedor$1.class
 com\grupo1\views\BuscarProducto$1.class
 com\grupo1\views\VtnInicio$2.class
 com\grupo1\views\VtnSeleccionarProducto$2.class

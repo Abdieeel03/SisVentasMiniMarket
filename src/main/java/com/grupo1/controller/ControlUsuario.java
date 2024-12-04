@@ -85,7 +85,6 @@ public class ControlUsuario {
         String nombreRol = editarUsuario.cmbRol.getSelectedItem().toString();
         usuario.setUsuario(editarUsuario.txtUsuario.getText());
         usuario.setDescripcion(editarUsuario.txtaDescripcion.getText());
-        System.out.println(idUsuario);
         try {
             usuarioDAO.update(usuario, nombreRol, idUsuario);
             vtnInicio.showJPanel(panelUsuario);
@@ -105,6 +104,7 @@ public class ControlUsuario {
             editarUsuario.limpiar();
         } catch (Exception ex) {
             Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(vtnInicio, "Ocurrio un error inesperado", "AVISO", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -207,8 +207,8 @@ public class ControlUsuario {
                 Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        
         nuevoUsuario.btnCancelar.addActionListener(e -> accionCancelar());
-
         nuevoUsuario.btnRegistrar.addActionListener(e -> {
             try {
                 registrar();
@@ -220,13 +220,12 @@ public class ControlUsuario {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    // Obtén el item seleccionado
                     String selectedItem = (String) e.getItem();
                     llenarDescripcion(selectedItem);
                 }
             }
         });
-
+        
         buscarUsuario.btnCancelar.addActionListener(e -> accionCancelar());
         buscarUsuario.table.addMouseListener(new MouseAdapter() {
             @Override
@@ -251,11 +250,11 @@ public class ControlUsuario {
             }
 
         });
+        
         editarUsuario.cmbRol.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    // Obtén el item seleccionado
                     String selectedItem = (String) e.getItem();
                     llenarDescripcion(selectedItem);
                 }

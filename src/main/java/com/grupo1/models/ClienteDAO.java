@@ -2,6 +2,9 @@ package com.grupo1.models;
 
 import com.grupo1.database.Database;
 import com.grupo1.interfaces.DAOCliente;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,19 +14,47 @@ import java.util.List;
 public class ClienteDAO extends Database implements DAOCliente {
 
     public void create(Cliente cliente) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            this.conectar();
+            PreparedStatement st = this.conexion.prepareStatement(
+                    "INSERT INTO cliente(id_cliente, nombre) VALUES(?,?)"
+            );
+            st.setString(1, cliente.getId_cliente());
+            st.setString(2, cliente.getNombre());
+            st.executeUpdate();
+            st.close();
+        } catch (Exception e) {
+        } finally {
+            this.cerrar();
+        }
     }
 
     public List<Cliente> read() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Cliente> clientes = new ArrayList<>();
+        try {
+            this.conectar();
+            String script = "SELECT id_cliente, nombre FROM cliente";
+            PreparedStatement st = this.conexion.prepareStatement(script);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Cliente cl = new Cliente();
+                cl.setId_cliente(rs.getString("id_cliente"));
+                cl.setNombre(rs.getString("nombre"));
+                clientes.add(cl);
+            }
+        } catch (Exception e) {
+        } finally {
+            this.cerrar();
+        }
+        return clientes;
     }
 
     public void update(Cliente cliente) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
     }
 
     public void delete(Cliente cliente) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
     }
 
 }

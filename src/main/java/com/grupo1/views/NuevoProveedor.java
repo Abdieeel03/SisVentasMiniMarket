@@ -5,7 +5,7 @@ package com.grupo1.views;
  * @author Abdiel
  */
 public class NuevoProveedor extends javax.swing.JPanel {
-    
+
     public NuevoProveedor() {
         initComponents();
     }
@@ -183,6 +183,13 @@ public class NuevoProveedor extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    public void limpiar() {
+        txtRUC.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+        txtPagina.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnRegistrar;

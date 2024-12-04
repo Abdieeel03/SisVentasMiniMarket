@@ -13,7 +13,7 @@ public interface DAOCliente {
 
     public List<Cliente> read() throws Exception;
 
-    public void update(Cliente cliente) throws Exception;
+    //public void update(Cliente cliente) throws Exception;
 
-    public void delete(Cliente cliente) throws Exception;
+    //public void delete(Cliente cliente) throws Exception;
 }

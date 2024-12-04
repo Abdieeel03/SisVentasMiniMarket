@@ -4,7 +4,8 @@ import java.util.List;
 
 public class Producto {
 
-    private String idProducto, nombre, idCategoria, idProveedor;
+    private int idProducto, idCategoria;
+    private String nombre, idProveedor;
     private double precioCompra, precioVenta;
     private int stock;
     private Categoria categoria;
@@ -14,11 +15,11 @@ public class Producto {
     public Producto() {
     }
 
-    public String getIdProducto() {
+    public int getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(String idProducto) {
+    public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
     }
 
@@ -30,11 +31,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public String getIdCategoria() {
+    public int getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(String idCategoria) {
+    public void setIdCategoria(int idCategoria) {
         this.idCategoria = idCategoria;
     }
 

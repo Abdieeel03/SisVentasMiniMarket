@@ -29,7 +29,7 @@ public class UsuarioDAO extends Database implements DAOUsuario {
             st.setString(4, usuario.getContraseña());
             st.setString(5, usuario.getDescripcion());
             st.executeUpdate();
-
+            st.close();
         } catch (Exception e) {
         } finally {
             this.cerrar();
@@ -58,18 +58,18 @@ public class UsuarioDAO extends Database implements DAOUsuario {
                 u.setDescripcion(rs.getString("descripcion"));
                 usuarios.add(u);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception("Error al leer los usuarios.");
+            st.close();
+            rs.close();
+        } catch (ClassNotFoundException e) {
+        } catch (SQLException e) {
         } finally {
-            this.cerrar(); // Cerramos la conexión a la base de datos
+            this.cerrar();
         }
         return usuarios;
     }
 
     public void update(Usuario usuario, String nombreRol, int idUsuario) throws Exception {
         try {
-            System.out.println(idUsuario);
             this.conectar();
             PreparedStatement st = this.conexion.prepareStatement(
                     "UPDATE usuario SET nombre = ?, id_rol = ?, usuario = ?, descripcion = ? WHERE id_usuario = ?;"
@@ -81,6 +81,7 @@ public class UsuarioDAO extends Database implements DAOUsuario {
             st.setString(4, usuario.getDescripcion());
             st.setInt(5, idUsuario);
             st.executeUpdate();
+            st.close();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

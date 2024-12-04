@@ -44,6 +44,8 @@ public class EditarProveedor extends javax.swing.JPanel {
         lblRuc.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         lblRuc.setText(" RUC:");
 
+        txtRUC.setEditable(false);
+
         lblNombre.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         lblNombre.setText("Nombre:");
 
@@ -200,7 +202,14 @@ public class EditarProveedor extends javax.swing.JPanel {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
-
+    
+    public void limpiar(){
+        txtRUC.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+        txtPagina.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizar;

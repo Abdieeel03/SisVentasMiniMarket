@@ -198,13 +198,13 @@ public class Controlador {
         nuevoProducto = new NuevoProducto();
         buscarProducto = new BuscarProducto();
         editarProducto = new EditarProducto();
-        controlProducto = new ControlProducto(vtnInicio, panelProductos, buscarProducto, nuevoProducto, editarProducto);
+        controlProducto = new ControlProducto(vtnInicio, panelProductos, buscarProducto, nuevoProducto, editarProducto, productoDAO, proveedorDAO, categoriaDAO);
         //Proveedor
         panelProveedor = new PanelProveedor();
         nuevoProveedor = new NuevoProveedor();
         buscarProveedor = new BuscarProveedor();
         editarProveedor = new EditarProveedor();
-        controlProveedor = new ControlProveedor(vtnInicio, panelProveedor, buscarProveedor, nuevoProveedor, editarProveedor);
+        controlProveedor = new ControlProveedor(vtnInicio, panelProveedor, buscarProveedor, nuevoProveedor, editarProveedor, proveedorDAO);
         //Usuarios
         panelUsuario = new PanelUsuario();
         nuevoUsuario = new NuevoUsuario();

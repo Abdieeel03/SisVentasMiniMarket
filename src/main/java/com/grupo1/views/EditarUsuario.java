@@ -70,6 +70,7 @@ public class EditarUsuario extends javax.swing.JPanel {
 
         txtContraseña.setEditable(false);
 
+        txtaDescripcion.setEditable(false);
         txtaDescripcion.setColumns(20);
         txtaDescripcion.setRows(5);
         jScrollPane1.setViewportView(txtaDescripcion);
