@@ -172,7 +172,7 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Producto", "Cantidad", "Precio", "Total"
+                "Producto", "Cantidad", "Precio", "Subtotal"
             }
         ) {
             boolean[] canEdit = new boolean [] {

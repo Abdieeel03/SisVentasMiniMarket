@@ -1,53 +1,53 @@
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\interfaces\DAOVenta.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\MedioPago.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\BuscarProveedor.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\controller\Controlador.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\EditarUsuario.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\VtnSeleccionarProducto.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\controller\ControlProveedor.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\controller\ControlProducto.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\interfaces\DAOCategoria.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\BuscarProducto.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\EditarProveedor.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\ProductoDAO.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\EditarProducto.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\controller\ControlUsuario.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\NuevoProducto.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\UsuarioDAO.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\NuevoProveedor.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\PanelRegistrarVenta.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\ProveedorDAO.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\PanelProveedor.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\DetalleVenta.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\Producto.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\ClienteDAO.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\DetalleVentaDAO.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\BuscarUsuario.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\controller\ControlReporte.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\VtnInicio.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\database\Database.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\NuevoUsuario.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\interfaces\DAOProveedor.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\Categoria.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\VentaDAO.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\ReporteDeVentas.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\interfaces\DAOUsuario.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\CategoriaDAO.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\VtnLogin.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\interfaces\DAOCliente.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\MedioPagoDAO.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\Cliente.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\controller\ControlRegistro.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\interfaces\DAORol.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\PanelUsuario.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\interfaces\DAOMedioPago.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\interfaces\DAODetalleVenta.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\PanelPrincipal.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\main\Main.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\Rol.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\Proveedor.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\RolDAO.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\Usuario.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\views\PanelProductos.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\interfaces\DAOProducto.java
-E:\POO\MinimarketWilson\src\main\java\com\grupo1\models\Venta.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\controller\Controlador.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\controller\ControlProducto.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\controller\ControlProveedor.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\controller\ControlRegistro.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\controller\ControlReporte.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\controller\ControlUsuario.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\database\Database.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\interfaces\DAOCategoria.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\interfaces\DAOCliente.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\interfaces\DAODetalleVenta.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\interfaces\DAOMedioPago.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\interfaces\DAOProducto.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\interfaces\DAOProveedor.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\interfaces\DAORol.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\interfaces\DAOUsuario.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\interfaces\DAOVenta.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\main\Main.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\Categoria.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\CategoriaDAO.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\Cliente.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\ClienteDAO.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\DetalleVenta.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\DetalleVentaDAO.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\MedioPago.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\MedioPagoDAO.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\Producto.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\ProductoDAO.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\Proveedor.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\ProveedorDAO.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\Rol.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\RolDAO.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\Usuario.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\UsuarioDAO.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\Venta.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\models\VentaDAO.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\BuscarProducto.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\BuscarProveedor.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\BuscarUsuario.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\EditarProducto.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\EditarProveedor.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\EditarUsuario.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\NuevoProducto.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\NuevoProveedor.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\NuevoUsuario.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\PanelPrincipal.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\PanelProductos.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\PanelProveedor.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\PanelRegistrarVenta.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\PanelUsuario.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\ReporteDeVentas.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\VtnInicio.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\VtnLogin.java
+D:\Proyecto POO\SisVentasMiniMarket\src\main\java\com\grupo1\views\VtnSeleccionarProducto.java

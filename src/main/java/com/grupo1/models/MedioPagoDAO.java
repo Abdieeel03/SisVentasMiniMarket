@@ -13,9 +13,7 @@ import java.util.List;
  */
 public class MedioPagoDAO extends Database implements DAOMedioPago {
 
-    public void create(MedioPago medioPago) throws Exception {
-    }
-
+    @Override
     public List<MedioPago> read() throws Exception {
         List<MedioPago> MedioPagos = new ArrayList<>();
         try {
@@ -30,16 +28,11 @@ public class MedioPagoDAO extends Database implements DAOMedioPago {
                 MedioPagos.add(m);
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             this.cerrar();
         }
         return MedioPagos;
-    }
-
-    public void update(MedioPago medioPago) throws Exception {
-    }
-
-    public void delete(MedioPago medioPago) throws Exception {
     }
 
 }

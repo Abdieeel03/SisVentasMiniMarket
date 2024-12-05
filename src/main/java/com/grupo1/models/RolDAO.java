@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class RolDAO extends Database implements DAORol {
 
+    @Override
     public List<Rol> read() throws Exception {
         List<Rol> roles = new ArrayList<>();
         try {
@@ -37,6 +38,7 @@ public class RolDAO extends Database implements DAORol {
     }
 
     public String getNombrePorId(int idRol) throws Exception {
+        String nombre = null;
         try {
             this.conectar();
             String query = "SELECT nombre FROM Rol WHERE id_rol = ?";
@@ -44,13 +46,14 @@ public class RolDAO extends Database implements DAORol {
             st.setInt(1, idRol);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                return rs.getString("nombre");
+                nombre = rs.getString("nombre");
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             this.cerrar();
         }
-        return null; // O puedes lanzar una excepción si no existe el rol
+        return nombre;
     }
 
 }

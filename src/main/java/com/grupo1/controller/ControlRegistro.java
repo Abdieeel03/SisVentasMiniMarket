@@ -20,7 +20,6 @@ public class ControlRegistro {
                 buscarProducto();
             }
         });
-        vtnSeleccionar.btnPrueba.addActionListener(e -> seleccionarProducto());
         panelRegistrarVenta.btnRegistrarVenta.addActionListener(e -> registrarVenta());
         panelRegistrarVenta.btnCancelar.addActionListener(e -> botonCancelar());
     }

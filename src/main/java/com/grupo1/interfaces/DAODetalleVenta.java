@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface DAODetalleVenta {
 
-    public void create(DetalleVenta detalleVenta) throws Exception;
+    public void create(List<DetalleVenta> detalleVentas) throws Exception;
 
     public List<DetalleVenta> read() throws Exception;
 
-    public void update(DetalleVenta detalleVenta) throws Exception;
+    //public void update(DetalleVenta detalleVenta) throws Exception;
 
-    public void delete(DetalleVenta detalleVenta) throws Exception;
+    //public void delete(DetalleVenta detalleVenta) throws Exception;
 }

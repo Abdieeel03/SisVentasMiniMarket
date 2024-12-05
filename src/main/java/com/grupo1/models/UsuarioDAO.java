@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class UsuarioDAO extends Database implements DAOUsuario {
 
+    @Override
     public void create(Usuario usuario, String nombreRol) throws Exception {
         try {
             this.conectar();
@@ -31,16 +32,17 @@ public class UsuarioDAO extends Database implements DAOUsuario {
             st.executeUpdate();
             st.close();
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             this.cerrar();
         }
     }
 
+    @Override
     public List<Usuario> read() throws Exception {
         List<Usuario> usuarios = new ArrayList<>();
         try {
             this.conectar();
-
             String sql = "SELECT id_usuario, nombre, id_rol, usuario, contraseña, descripcion FROM usuario";
             PreparedStatement st = this.conexion.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -57,14 +59,15 @@ public class UsuarioDAO extends Database implements DAOUsuario {
             }
             st.close();
             rs.close();
-        } catch (ClassNotFoundException e) {
-        } catch (SQLException e) {
+        } catch (Exception e){
+            e.printStackTrace();
         } finally {
             this.cerrar();
         }
         return usuarios;
     }
 
+    @Override
     public void update(Usuario usuario, String nombreRol, int idUsuario) throws Exception {
         try {
             this.conectar();
@@ -86,6 +89,7 @@ public class UsuarioDAO extends Database implements DAOUsuario {
         }
     }
 
+    @Override
     public void delete(int idUsuario) throws Exception {
         try {
             this.conectar();

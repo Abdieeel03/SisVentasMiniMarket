@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface DAOMedioPago {
 
-    public void create(MedioPago medioPago) throws Exception;
+    //public void create(MedioPago medioPago) throws Exception;
 
     public List<MedioPago> read() throws Exception;
 
-    public void update(MedioPago medioPago) throws Exception;
+    //public void update(MedioPago medioPago) throws Exception;
 
-    public void delete(MedioPago medioPago) throws Exception;
+    //public void delete(MedioPago medioPago) throws Exception;
 }

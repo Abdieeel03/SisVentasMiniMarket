@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class ProductoDAO extends Database implements DAOProducto {
 
+    @Override
     public void create(Producto producto, List<String> ids) throws Exception {
         try {
             this.conectar();
@@ -37,6 +38,7 @@ public class ProductoDAO extends Database implements DAOProducto {
         }
     }
 
+    @Override
     public List<Producto> read() throws Exception {
         List<Producto> producto = new ArrayList<>();
         try {
@@ -65,6 +67,7 @@ public class ProductoDAO extends Database implements DAOProducto {
         return producto;
     }
 
+    @Override
     public void update(Producto producto, List<String> ids) throws Exception {
         try {
             this.conectar();
@@ -96,6 +99,7 @@ public class ProductoDAO extends Database implements DAOProducto {
         }
     }
 
+    @Override
     public void delete(Producto producto) throws Exception {
         try {
             this.conectar();

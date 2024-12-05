@@ -2,7 +2,7 @@ package com.grupo1.models;
 
 public class DetalleVenta {
 
-    private String idDetalle, idVenta, idProducto;
+    private int idDetalle, idVenta, idProducto;
     private int cantidad;
     private double precioUnitario;
     private double subtotal;
@@ -11,27 +11,27 @@ public class DetalleVenta {
     public DetalleVenta() {
     }
 
-    public String getIdDetalle() {
+    public int getIdDetalle() {
         return idDetalle;
     }
 
-    public void setIdDetalle(String idDetalle) {
+    public void setIdDetalle(int idDetalle) {
         this.idDetalle = idDetalle;
     }
 
-    public String getIdVenta() {
+    public int getIdVenta() {
         return idVenta;
     }
 
-    public void setIdVenta(String idVenta) {
+    public void setIdVenta(int idVenta) {
         this.idVenta = idVenta;
     }
 
-    public String getIdProducto() {
+    public int getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(String idProducto) {
+    public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
     }
 

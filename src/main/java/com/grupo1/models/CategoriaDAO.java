@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class CategoriaDAO extends Database implements DAOCategoria {
 
+    @Override
     public List<Categoria> read() throws Exception {
         List<Categoria> categorias = new ArrayList<>();
         try {
@@ -28,6 +29,7 @@ public class CategoriaDAO extends Database implements DAOCategoria {
                 categorias.add(c);
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             this.cerrar();
         }

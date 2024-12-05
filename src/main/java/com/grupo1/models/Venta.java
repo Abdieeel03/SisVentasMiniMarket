@@ -6,10 +6,10 @@ import java.util.List;
 
 public class Venta {
 
-    private String id_venta;
+    private int id_venta;
     private Date fechaVenta;
     private double total;
-    private String idMedioPago;
+    private int idMedioPago;
     private String idCliente;
     private MedioPago medioPago;
     private Cliente cliente;
@@ -24,11 +24,11 @@ public class Venta {
         detalleVenta.setVenta(this);
     }
 
-    public String getId_venta() {
+    public int getId_venta() {
         return id_venta;
     }
 
-    public void setId_venta(String id_venta) {
+    public void setId_venta(int id_venta) {
         this.id_venta = id_venta;
     }
 
@@ -48,11 +48,11 @@ public class Venta {
         this.total = total;
     }
 
-    public String getIdMedioPago() {
+    public int getIdMedioPago() {
         return idMedioPago;
     }
 
-    public void setIdMedioPago(String idMedioPago) {
+    public void setIdMedioPago(int idMedioPago) {
         this.idMedioPago = idMedioPago;
     }
 

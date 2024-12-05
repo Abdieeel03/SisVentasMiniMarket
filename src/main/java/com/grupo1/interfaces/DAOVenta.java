@@ -13,7 +13,7 @@ public interface DAOVenta {
 
     public List<Venta> read() throws Exception;
 
-    public void update(Venta venta) throws Exception;
+    //public void update(Venta venta) throws Exception;
 
-    public void delete(Venta venta) throws Exception;
+    //public void delete(Venta venta) throws Exception;
 }

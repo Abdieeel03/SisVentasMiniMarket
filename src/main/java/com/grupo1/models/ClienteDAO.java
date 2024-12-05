@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class ClienteDAO extends Database implements DAOCliente {
 
+    @Override
     public void create(Cliente cliente) throws Exception {
         try {
             this.conectar();
@@ -24,11 +25,13 @@ public class ClienteDAO extends Database implements DAOCliente {
             st.executeUpdate();
             st.close();
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             this.cerrar();
         }
     }
 
+    @Override
     public List<Cliente> read() throws Exception {
         List<Cliente> clientes = new ArrayList<>();
         try {
@@ -43,18 +46,11 @@ public class ClienteDAO extends Database implements DAOCliente {
                 clientes.add(cl);
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             this.cerrar();
         }
         return clientes;
-    }
-
-    public void update(Cliente cliente) throws Exception {
-
-    }
-
-    public void delete(Cliente cliente) throws Exception {
-
     }
 
 }

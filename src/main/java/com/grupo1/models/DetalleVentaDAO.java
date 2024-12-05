@@ -13,42 +13,50 @@ import java.util.List;
  */
 public class DetalleVentaDAO extends Database implements DAODetalleVenta {
 
-    public  List<DetalleVenta> read() throws Exception {
-        List<DetalleVenta> detalleventas = new ArrayList<>();
+    @Override
+    public void create(List<DetalleVenta> detalleVentas) throws Exception {
         try {
             this.conectar();
-            //id_detalle	id_venta	id_producto	cantidad	precioUnitario	subtotal	
-
-            String script = "SELECT id_detalle, id_venta, id_producto, cantidad, precioUnitario, subtotal FROM detalle venta";
+            String script = "INSERT INTO detalleventa (id_venta, id_producto, cantidad, precioUnitario) VALUES (?,?,?,?)";
             PreparedStatement st = this.conexion.prepareStatement(script);
-            ResultSet rs = st.executeQuery();
-            while(rs.next()){
-                DetalleVenta c = new DetalleVenta();
-                c.setIdDetalle(rs.getString("id_detalle"));
-                c.setIdVenta(rs.getString("id_venta"));
-                c.setIdProducto(rs.getString("id_producto"));
-                c.setCantidad(rs.getInt("cantidad"));
-                c.setPrecioUnitario(rs.getDouble("precio unitario"));
-                c.setSubtotal(rs.getDouble("subtotal"));
-                detalleventas.add(c);
+            for(DetalleVenta d : detalleVentas){
+                st.setInt(1, d.getIdVenta());
+                st.setInt(2, d.getIdProducto());
+                st.setInt(3, d.getCantidad());
+                st.setDouble(4, d.getPrecioUnitario());
+                st.executeUpdate();
             }
+            st.close();
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             this.cerrar();
         }
-        return detalleventas;
     }
 
-    public void create(DetalleVenta detalleVenta) throws Exception {
-        
+    @Override
+    public List<DetalleVenta> read() throws Exception {
+        List<DetalleVenta> detalleVentas = new ArrayList<>();
+        try {
+            this.conectar();
+            String script = "SELECT id_detalle, id_venta, id_producto, cantidad, precioUnitario, subtotal FROM detalleventa";
+            PreparedStatement st = this.conexion.prepareStatement(script);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                DetalleVenta c = new DetalleVenta();
+                c.setIdDetalle(rs.getInt("id_detalle"));
+                c.setIdVenta(rs.getInt("id_venta"));
+                c.setIdProducto(rs.getInt("id_producto"));
+                c.setCantidad(rs.getInt("cantidad"));
+                c.setPrecioUnitario(rs.getDouble("precio unitario"));
+                c.setSubtotal(rs.getDouble("subtotal"));
+                detalleVentas.add(c);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.cerrar();
+        }
+        return detalleVentas;
     }
-
-    public void update(DetalleVenta detalleVenta) throws Exception {
-        
-    }
-
-    public void delete(DetalleVenta detalleVenta) throws Exception {
-        
-    }
-
 }
