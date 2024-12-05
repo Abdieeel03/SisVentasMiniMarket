@@ -4,6 +4,7 @@ import com.grupo1.database.Database;
 import com.grupo1.interfaces.DAOProveedor;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,6 +92,24 @@ public class ProveedorDAO extends Database implements DAOProveedor {
         } finally {
             this.cerrar();
         }
+    }
+
+    public String getNombre(String id) throws SQLException {
+        String nombre = null;
+        try {
+            this.conectar();
+            String query = "SELECT nombre FROM proveedor WHERE id_proveedor = ?";
+            PreparedStatement st = this.conexion.prepareStatement(query);
+            st.setString(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                nombre = rs.getString("nombre");
+            }
+        } catch (Exception e) {
+        } finally {
+            this.cerrar();
+        }
+        return nombre;
     }
 
 }

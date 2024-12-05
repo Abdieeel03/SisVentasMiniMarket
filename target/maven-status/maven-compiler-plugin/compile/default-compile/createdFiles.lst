@@ -55,6 +55,7 @@ com\grupo1\views\PanelProductos$2.class
 com\grupo1\views\VtnSeleccionarProducto.class
 com\grupo1\controller\ControlUsuario$2.class
 com\grupo1\models\ProveedorDAO.class
+com\grupo1\controller\ControlProducto$1.class
 com\grupo1\views\BuscarProveedor$1.class
 com\grupo1\models\Rol.class
 com\grupo1\controller\Controlador$1.class
@@ -77,8 +78,8 @@ com\grupo1\views\ReporteDeVentas.class
 com\grupo1\views\PanelProveedor$1.class
 com\grupo1\interfaces\DAOCategoria.class
 com\grupo1\views\NuevoProveedor$1.class
-com\grupo1\views\PanelProductos$1.class
 com\grupo1\views\VtnInicio$1.class
+com\grupo1\views\PanelProductos$1.class
 com\grupo1\views\NuevoUsuario$1.class
 com\grupo1\views\EditarProveedor$3.class
 com\grupo1\controller\ControlUsuario$4.class
@@ -88,6 +89,7 @@ com\grupo1\views\BuscarUsuario.class
 com\grupo1\controller\ControlReporte.class
 com\grupo1\views\PanelRegistrarVenta.class
 com\grupo1\views\BuscarProveedor$2.class
+com\grupo1\controller\ControlProducto$2.class
 com\grupo1\models\Producto.class
 com\grupo1\views\EditarProveedor$2.class
 com\grupo1\controller\ControlRegistro.class

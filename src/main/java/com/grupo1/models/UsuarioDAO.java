@@ -39,16 +39,13 @@ public class UsuarioDAO extends Database implements DAOUsuario {
     public List<Usuario> read() throws Exception {
         List<Usuario> usuarios = new ArrayList<>();
         try {
-            this.conectar(); // Establecemos la conexión a la base de datos
+            this.conectar();
 
-            // Consulta SQL para obtener todos los usuarios
             String sql = "SELECT id_usuario, nombre, id_rol, usuario, contraseña, descripcion FROM usuario";
             PreparedStatement st = this.conexion.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
 
-            // Procesamos los resultados de la consulta
             while (rs.next()) {
-                // Creamos un objeto Usuario y lo añadimos a la lista
                 Usuario u = new Usuario();
                 u.setIdUsuario(rs.getInt("id_usuario"));
                 u.setNombre(rs.getString("nombre"));

@@ -182,6 +182,13 @@ public class NuevoProducto extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    public void limpiar(){
+        txtID.setText("");
+        txtNombre.setText("");
+        txtPrecioCompra.setText("");
+        txtPrecioVenta.setText("");
+        spnStock.setValue(0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCancelar;
@@ -190,7 +197,7 @@ public class NuevoProducto extends javax.swing.JPanel {
     public javax.swing.JComboBox<String> cmbProveedor;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCategoria;
-    private javax.swing.JLabel lblID;
+    public javax.swing.JLabel lblID;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPrecioCompra;
     private javax.swing.JLabel lblPrecioVenta;
