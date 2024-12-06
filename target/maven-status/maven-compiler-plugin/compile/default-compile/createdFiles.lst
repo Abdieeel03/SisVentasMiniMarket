@@ -24,6 +24,7 @@ com\grupo1\interfaces\DAOUsuario.class
 com\grupo1\views\EditarProducto$1.class
 com\grupo1\views\PanelProveedor.class
 com\grupo1\models\UsuarioDAO.class
+com\grupo1\controller\ControlRegistro$2.class
 com\grupo1\controller\ControlUsuario$3.class
 com\grupo1\models\VentaDAO.class
 com\grupo1\views\BuscarUsuario$1.class
@@ -47,6 +48,7 @@ com\grupo1\views\BuscarUsuario$2.class
 com\grupo1\models\ClienteDAO.class
 com\grupo1\controller\ControlProveedor.class
 com\grupo1\views\VtnLogin.class
+com\grupo1\controller\ControlRegistro$4.class
 com\grupo1\views\BuscarProducto$2.class
 com\grupo1\interfaces\DAODetalleVenta.class
 com\grupo1\views\VtnInicio.class
@@ -77,9 +79,11 @@ com\grupo1\views\NuevoProveedor$2.class
 com\grupo1\views\ReporteDeVentas.class
 com\grupo1\views\PanelProveedor$1.class
 com\grupo1\interfaces\DAOCategoria.class
+com\grupo1\views\VtnLogin$1.class
 com\grupo1\views\NuevoProveedor$1.class
-com\grupo1\views\PanelProductos$1.class
 com\grupo1\views\VtnInicio$1.class
+com\grupo1\views\PanelProductos$1.class
+com\grupo1\controller\ControlRegistro$3.class
 com\grupo1\views\NuevoUsuario$1.class
 com\grupo1\views\EditarProveedor$3.class
 com\grupo1\controller\ControlUsuario$4.class

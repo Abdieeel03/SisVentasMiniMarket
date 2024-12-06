@@ -18,12 +18,12 @@ public class MedioPagoDAO extends Database implements DAOMedioPago {
         List<MedioPago> MedioPagos = new ArrayList<>();
         try {
             this.conectar();
-            String script = "SELECT idMedioPago, nombre FROM mediopago";
+            String script = "SELECT id_medioPago, nombre FROM mediopago";
             PreparedStatement st = this.conexion.prepareStatement(script);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 MedioPago m = new MedioPago();
-                m.setIdMedioPago(rs.getString("id_MedioPago"));
+                m.setIdMedioPago(rs.getString("id_medioPago"));
                 m.setNombre(rs.getString("nombre"));
                 MedioPagos.add(m);
             }

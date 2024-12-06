@@ -18,8 +18,6 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
     private void initComponents() {
 
         pnlPantalla = new javax.swing.JPanel();
-        lbIdVenta = new javax.swing.JLabel();
-        txtIdVenta = new javax.swing.JTextField();
         pnlDatosCliente = new javax.swing.JPanel();
         lblDocumento = new javax.swing.JLabel();
         txtDocumento = new javax.swing.JTextField();
@@ -29,12 +27,12 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
         lblNombreProducto = new javax.swing.JLabel();
         txtNombreProducto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        spnCantidad = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtSubtotal = new javax.swing.JTextField();
+        btnAgregarProducto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         pnlTotal = new javax.swing.JPanel();
@@ -57,10 +55,6 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         pnlPantalla.setBackground(new java.awt.Color(255, 255, 255));
-
-        lbIdVenta.setText("Nro. Venta");
-
-        txtIdVenta.setEditable(false);
 
         pnlDatosCliente.setBackground(new java.awt.Color(255, 255, 255));
         pnlDatosCliente.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos del cliente"));
@@ -110,17 +104,17 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
 
         jLabel2.setText("Precio:");
 
-        jTextField1.setEditable(false);
+        txtPrecio.setEditable(false);
 
         jLabel3.setText("Cantidad:");
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        spnCantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        jLabel4.setText("Total:");
+        jLabel4.setText("Subtotal:");
 
-        jTextField2.setEditable(false);
+        txtSubtotal.setEditable(false);
 
-        jButton1.setText("Agregar Producto");
+        btnAgregarProducto.setText("Agregar Producto");
 
         javax.swing.GroupLayout pnlProductoLayout = new javax.swing.GroupLayout(pnlProducto);
         pnlProducto.setLayout(pnlProductoLayout);
@@ -133,19 +127,20 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlProductoLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(spnCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtNombreProducto))
                 .addContainerGap())
         );
         pnlProductoLayout.setVerticalGroup(
@@ -158,12 +153,12 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarProducto))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -319,11 +314,6 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPantallaLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(lbIdVenta)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtIdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlPantallaLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -346,11 +336,7 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
         pnlPantallaLayout.setVerticalGroup(
             pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPantallaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbIdVenta)
-                    .addComponent(txtIdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(34, 34, 34)
                 .addComponent(pnlDatosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -400,10 +386,10 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnAgregarProducto;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnRegistrarVenta;
     public javax.swing.JComboBox<String> cmbMedioPago;
-    public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -414,11 +400,7 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JSpinner jSpinner1;
     public javax.swing.JTable jTable1;
-    public javax.swing.JTextField jTextField1;
-    public javax.swing.JTextField jTextField2;
-    private javax.swing.JLabel lbIdVenta;
     private javax.swing.JLabel lblDocumento;
     public javax.swing.JLabel lblIGV;
     private javax.swing.JLabel lblNombreProducto;
@@ -430,11 +412,13 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
     private javax.swing.JPanel pnlPantalla;
     private javax.swing.JPanel pnlProducto;
     private javax.swing.JPanel pnlTotal;
+    public javax.swing.JSpinner spnCantidad;
     public javax.swing.JTextField txtCambio;
     public javax.swing.JTextField txtDineroRecibido;
     public javax.swing.JTextField txtDocumento;
-    public javax.swing.JTextField txtIdVenta;
     public javax.swing.JTextField txtNombreCliente;
     public javax.swing.JTextField txtNombreProducto;
+    public javax.swing.JTextField txtPrecio;
+    public javax.swing.JTextField txtSubtotal;
     // End of variables declaration//GEN-END:variables
 }
