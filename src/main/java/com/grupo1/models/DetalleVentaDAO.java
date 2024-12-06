@@ -4,7 +4,9 @@ import com.grupo1.database.Database;
 import com.grupo1.interfaces.DAODetalleVenta;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,7 +21,7 @@ public class DetalleVentaDAO extends Database implements DAODetalleVenta {
             this.conectar();
             String script = "INSERT INTO detalleventa (id_venta, id_producto, cantidad, precioUnitario) VALUES (?,?,?,?)";
             PreparedStatement st = this.conexion.prepareStatement(script);
-            for(DetalleVenta d : detalleVentas){
+            for (DetalleVenta d : detalleVentas) {
                 st.setInt(1, d.getIdVenta());
                 st.setInt(2, d.getIdProducto());
                 st.setInt(3, d.getCantidad());
@@ -59,4 +61,5 @@ public class DetalleVentaDAO extends Database implements DAODetalleVenta {
         }
         return detalleVentas;
     }
+
 }

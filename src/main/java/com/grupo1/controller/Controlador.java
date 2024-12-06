@@ -20,6 +20,7 @@ public class Controlador {
     }
 
     public void showPanelRegistro() {
+        controlRegistro.limpiarDatos();
         controlRegistro.llenarComboBox();
         controlRegistro.vaciarTabla();
         vtnInicio.showJPanel(panelRegistrarVenta);
@@ -54,6 +55,7 @@ public class Controlador {
             JOptionPane.showMessageDialog(null, "Usted no puede acceder a este apartado!");
             return;
         }
+        controlReporte.mostrarEstadisticas();
         vtnInicio.showJPanel(panelReporte);
     }
 
@@ -234,6 +236,6 @@ public class Controlador {
         controlUsuario = new ControlUsuario(vtnInicio, panelUsuario, buscarUsuario, nuevoUsuario, editarUsuario, usuarioDAO, rolDAO);
         //Reporte
         panelReporte = new ReporteDeVentas();
-        controlReporte = new ControlReporte(vtnInicio, panelReporte);
+        controlReporte = new ControlReporte(vtnInicio, panelReporte, productoDAO);
     }
 }

@@ -11,6 +11,8 @@ import com.grupo1.models.ProductoDAO;
 import com.grupo1.models.Venta;
 import com.grupo1.models.VentaDAO;
 import com.grupo1.views.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -46,6 +48,11 @@ public class ControlRegistro {
     }
 
     public void registrarVenta() throws SQLException, Exception {
+        DefaultTableModel model = (DefaultTableModel) panelRegistrarVenta.jTable1.getModel();
+        if(model.getRowCount() == 0){
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ningun producto!", "AVISO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         //Registrar Cliente
         Cliente c = guardarCliente();
         try {
@@ -68,9 +75,8 @@ public class ControlRegistro {
         v.setIdCliente(c.getId_cliente());
         int idVenta = ventaDAO.create(v);
         v.setId_venta(idVenta);
-        
+
         //Obtener Datos DetalleVenta
-        DefaultTableModel model = (DefaultTableModel) panelRegistrarVenta.jTable1.getModel();
         for (Object fila : model.getDataVector()) {
             Vector<?> vectorFila = (Vector<?>) fila;
             DetalleVenta detalle = new DetalleVenta();
@@ -81,12 +87,13 @@ public class ControlRegistro {
             detalle.setSubtotal(Double.parseDouble(String.valueOf(vectorFila.get(3))));
             v.getDetalleVentas().add(detalle);
         }
-        
-        for(DetalleVenta d : v.getDetalleVentas()){
-            System.out.println(d.getIdProducto());
-        }
-        
+
         detalleDAO.create(v.getDetalleVentas());
+
+        vtnInicio.showJPanel(new PanelPrincipal());
+        limpiarDatos();
+        model.setRowCount(0);
+        JOptionPane.showMessageDialog(null, "Venta Realizada Correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
@@ -205,6 +212,40 @@ public class ControlRegistro {
         panelRegistrarVenta.lblTotal.setText(String.format("%.2f", total));
     }
 
+    public void calcularCambio() {
+        if (panelRegistrarVenta.txtDineroRecibido.getText().isEmpty()) {
+            return;
+        }
+        try {
+            Double total = Double.parseDouble(panelRegistrarVenta.lblTotal.getText());
+            Double dineroRecibido = Double.parseDouble(panelRegistrarVenta.txtDineroRecibido.getText());
+            Double cambio = dineroRecibido - total;
+            panelRegistrarVenta.txtCambio.setText(String.valueOf(String.format("%.2f", cambio)));
+        } catch (Exception e) {
+            panelRegistrarVenta.txtDineroRecibido.setText("");
+            JOptionPane.showMessageDialog(null, "Ingrese un número correcto", "AVUSO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void desbloquearCambio(String item) {
+        switch (item) {
+            case "Billetera Digital":
+                panelRegistrarVenta.txtDineroRecibido.setText("");
+                panelRegistrarVenta.txtDineroRecibido.setEditable(false);
+                break;
+            case "Efectivo":
+                panelRegistrarVenta.txtDineroRecibido.setText("");
+                panelRegistrarVenta.txtDineroRecibido.setEditable(true);
+                break;
+            default:
+                throw new AssertionError();
+        }
+    }
+
+    public void limpiarDatos() {
+        panelRegistrarVenta.limpiar();
+    }
+
     /*Declaracion de variables*/
     private VtnInicio vtnInicio;
     private VtnSeleccionarProducto vtnSeleccionar;
@@ -274,6 +315,29 @@ public class ControlRegistro {
 
             public void changedUpdate(DocumentEvent e) {
                 buscarRegistro();
+            }
+
+        });
+        panelRegistrarVenta.txtDineroRecibido.getDocument().addDocumentListener(new DocumentListener() {
+            public void insertUpdate(DocumentEvent e) {
+                calcularCambio();
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                calcularCambio();
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                calcularCambio();
+            }
+
+        });
+        panelRegistrarVenta.cmbMedioPago.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    String item = (String) e.getItem();
+                    desbloquearCambio(item);
+                }
             }
 
         });

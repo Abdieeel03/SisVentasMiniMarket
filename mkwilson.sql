@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2024 a las 08:33:39
+-- Tiempo de generación: 06-12-2024 a las 18:05:56
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -94,11 +94,11 @@ CREATE TABLE `detalleventa` (
 --
 
 INSERT INTO `detalleventa` (`id_detalle`, `id_venta`, `id_producto`, `cantidad`, `precioUnitario`) VALUES
-(8, 4, 103, 4, 2.80),
-(9, 4, 107, 5, 6.00),
-(10, 4, 110, 5, 5.00),
-(11, 4, 104, 4, 4.50),
-(13, 6, 107, 3, 6.00);
+(14, 8, 173, 5, 8.00),
+(15, 8, 165, 4, 35.00),
+(16, 9, 109, 5, 3.00),
+(17, 9, 110, 4, 5.00),
+(18, 10, 109, 5, 3.00);
 
 -- --------------------------------------------------------
 
@@ -356,8 +356,9 @@ CREATE TABLE `venta` (
 --
 
 INSERT INTO `venta` (`id_venta`, `fechaVenta`, `total`, `id_medioPago`, `id_cliente`) VALUES
-(4, '2024-12-06 00:00:00', 99.36, 2, '00000000'),
-(6, '2024-12-06 00:00:00', 21.24, 2, '70549834');
+(8, '2024-12-06 00:00:00', 212.40, 1, '00000000'),
+(9, '2024-12-06 00:00:00', 41.30, 2, '00000000'),
+(10, '2024-12-06 00:00:00', 17.70, 1, '00000000');
 
 --
 -- Índices para tablas volcadas
@@ -442,7 +443,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `detalleventa`
 --
 ALTER TABLE `detalleventa`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `mediopago`
@@ -472,7 +473,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas

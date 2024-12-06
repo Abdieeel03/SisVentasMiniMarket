@@ -31,9 +31,9 @@ public class VtnLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtContra = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        txtContra = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,7 +63,6 @@ public class VtnLogin extends javax.swing.JFrame {
 
         jLabel6.setText("CONTRASEÑA");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
-        jPanel3.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 370, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Avatar_Container.png"))); // NOI18N
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
@@ -71,6 +70,7 @@ public class VtnLogin extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Card_Header (1).jpg"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel3.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 370, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Card_Content.jpg"))); // NOI18N
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -135,7 +135,7 @@ public class VtnLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    public javax.swing.JTextField txtContra;
+    public javax.swing.JPasswordField txtContra;
     public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -81,7 +81,7 @@ public class ReporteDeVentas extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Producto", "Fecha", "Venta Total"
+                "Producto", "Fecha", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -155,7 +155,7 @@ public class ReporteDeVentas extends javax.swing.JPanel {
     private javax.swing.JPanel pnlMasVendidos;
     private javax.swing.JPanel pnlPantalla;
     private javax.swing.JPanel pnlUltimas;
-    private javax.swing.JTable tableMasVendidos;
-    private javax.swing.JTable tableUltimas;
+    public javax.swing.JTable tableMasVendidos;
+    public javax.swing.JTable tableUltimas;
     // End of variables declaration//GEN-END:variables
 }

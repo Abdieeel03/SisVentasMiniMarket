@@ -170,4 +170,62 @@ public class ProductoDAO extends Database implements DAOProducto {
         return id;
     }
 
+    public List<Producto> obtenerProductoMasVendidos() throws SQLException {
+        List<Producto> productosMasVendidos = new ArrayList<>();
+        try {
+            String script = "SELECT "
+                    + "p.id_producto, "
+                    + "p.nombre AS nombre_producto, "
+                    + "SUM(dv.cantidad) AS total_vendido, "
+                    + "p.stock AS stock_restante "
+                    + "FROM producto p "
+                    + "JOIN detalleventa dv ON p.id_producto = dv.id_producto "
+                    + "GROUP BY p.id_producto, p.nombre, p.stock "
+                    + "ORDER BY total_vendido DESC;";
+            this.conectar();
+            PreparedStatement st = this.conexion.prepareStatement(script);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Producto p = new Producto();
+                p.setIdProducto(rs.getInt("id_producto"));
+                p.setNombre(rs.getString("nombre_producto"));
+                p.setIdCategoria(rs.getInt("total_vendido"));
+                p.setStock(rs.getInt("stock_restante"));
+                productosMasVendidos.add(p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.cerrar();
+        }
+        return productosMasVendidos;
+    }
+
+    public List<Venta> obtenerVentasOrdenadasPorFecha() throws SQLException {
+        List<Venta> ultimasVentas = new ArrayList<>();
+        try {
+            this.conectar();
+            String sql = "SELECT p.nombre AS producto, v.fechaVenta AS fecha, dv.subtotal AS total "
+                    + "FROM detalleventa dv "
+                    + "JOIN producto p ON dv.id_producto = p.id_producto "
+                    + "JOIN venta v ON dv.id_venta = v.id_venta "
+                    + "ORDER BY v.fechaVenta DESC";
+            PreparedStatement st = this.conexion.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Venta v = new Venta();
+                v.setIdCliente(rs.getString("producto"));
+                v.setFechaVenta(rs.getDate("fecha"));
+                v.setTotal(rs.getDouble("total"));
+                ultimasVentas.add(v);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.cerrar();
+        }
+
+        return ultimasVentas;
+    }
+
 }

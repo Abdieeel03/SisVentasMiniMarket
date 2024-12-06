@@ -384,6 +384,19 @@ public class PanelRegistrarVenta extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    public void limpiar(){
+        txtCambio.setText("");
+        txtDineroRecibido.setText("");
+        txtDocumento.setText("");
+        txtNombreCliente.setText("");
+        txtPrecio.setText("");
+        txtNombreProducto.setText("");
+        txtSubtotal.setText("");
+        spnCantidad.setValue((int) 0);
+        lblSubTotal.setText("");
+        lblIGV.setText("");
+        lblTotal.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregarProducto;
