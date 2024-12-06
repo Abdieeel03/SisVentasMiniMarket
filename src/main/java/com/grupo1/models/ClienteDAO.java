@@ -4,6 +4,7 @@ import com.grupo1.database.Database;
 import com.grupo1.interfaces.DAOCliente;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,5 +53,22 @@ public class ClienteDAO extends Database implements DAOCliente {
         }
         return clientes;
     }
-
+    
+    public boolean verificarExistencia(Cliente cliente) throws SQLException{
+        String script = "SELECT COUNT(*) FROM cliente WHERE id_cliente = ?";
+        try {
+            this.conectar();
+            PreparedStatement st = this.conexion.prepareStatement(script);
+            st.setString(1, cliente.getId_cliente());
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                return rs.getInt(1)>0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.cerrar();
+        }
+        return false;
+    }
 }

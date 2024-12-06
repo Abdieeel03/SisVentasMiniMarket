@@ -4,6 +4,7 @@ import com.grupo1.database.Database;
 import com.grupo1.interfaces.DAOMedioPago;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,24 @@ public class MedioPagoDAO extends Database implements DAOMedioPago {
             this.cerrar();
         }
         return MedioPagos;
+    }
+    
+    public int obtenerIdporNombre(String nombreRol) throws SQLException{
+        int id = -1;
+        try {
+            this.conectar();
+            PreparedStatement st = this.conexion.prepareStatement("SELECT id_medioPago FROM mediopago WHERE nombre = ?");
+            st.setString(1, nombreRol);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                id = rs.getInt("id_medioPago");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.cerrar();
+        }
+        return id;
     }
 
 }

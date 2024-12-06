@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2024 a las 08:21:44
+-- Tiempo de generación: 06-12-2024 a las 08:33:39
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -66,6 +66,14 @@ CREATE TABLE `cliente` (
   `nombre` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`id_cliente`, `nombre`) VALUES
+('00000000', 'Cliente Default'),
+('70549834', 'MARCELO');
+
 -- --------------------------------------------------------
 
 --
@@ -81,6 +89,17 @@ CREATE TABLE `detalleventa` (
   `subtotal` decimal(10,2) GENERATED ALWAYS AS (`cantidad` * `precioUnitario`) STORED
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `detalleventa`
+--
+
+INSERT INTO `detalleventa` (`id_detalle`, `id_venta`, `id_producto`, `cantidad`, `precioUnitario`) VALUES
+(8, 4, 103, 4, 2.80),
+(9, 4, 107, 5, 6.00),
+(10, 4, 110, 5, 5.00),
+(11, 4, 104, 4, 4.50),
+(13, 6, 107, 3, 6.00);
+
 -- --------------------------------------------------------
 
 --
@@ -91,6 +110,14 @@ CREATE TABLE `mediopago` (
   `id_medioPago` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `mediopago`
+--
+
+INSERT INTO `mediopago` (`id_medioPago`, `nombre`) VALUES
+(2, 'Billetera Digital'),
+(1, 'Efectivo');
 
 -- --------------------------------------------------------
 
@@ -325,6 +352,14 @@ CREATE TABLE `venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Volcado de datos para la tabla `venta`
+--
+
+INSERT INTO `venta` (`id_venta`, `fechaVenta`, `total`, `id_medioPago`, `id_cliente`) VALUES
+(4, '2024-12-06 00:00:00', 99.36, 2, '00000000'),
+(6, '2024-12-06 00:00:00', 21.24, 2, '70549834');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -407,13 +442,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `detalleventa`
 --
 ALTER TABLE `detalleventa`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `mediopago`
 --
 ALTER TABLE `mediopago`
-  MODIFY `id_medioPago` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_medioPago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -437,7 +472,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

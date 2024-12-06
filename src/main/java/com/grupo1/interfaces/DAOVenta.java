@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface DAOVenta {
 
-    public void create(Venta venta) throws Exception;
+    public int create(Venta venta) throws Exception;
 
     public List<Venta> read() throws Exception;
 

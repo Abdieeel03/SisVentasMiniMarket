@@ -5,6 +5,7 @@ import com.grupo1.interfaces.DAOVenta;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,21 +16,26 @@ import java.util.List;
 public class VentaDAO extends Database implements DAOVenta {
 
     @Override
-    public void create(Venta venta) throws Exception {
+    public int create(Venta venta) throws Exception {
         try {
             this.conectar();
             String script = "INSERT INTO venta (fechaVenta, total, id_medioPago, id_cliente) VALUES (?,?,?,?)";
-            PreparedStatement st = this.conexion.prepareStatement(script);
-            st.setDate(1, (Date) venta.getFechaVenta());
+            PreparedStatement st = this.conexion.prepareStatement(script, Statement.RETURN_GENERATED_KEYS);
+            st.setDate(1, new java.sql.Date(venta.getFechaVenta().getTime()));
             st.setDouble(2, venta.getTotal());
             st.setInt(3, venta.getIdMedioPago());
             st.setString(4, venta.getIdCliente());
             st.executeUpdate();
+            ResultSet rs = st.getGeneratedKeys();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             this.cerrar();
         }
+        return -1;
     }
 
     @Override

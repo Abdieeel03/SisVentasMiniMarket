@@ -1,16 +1,22 @@
 package com.grupo1.controller;
 
+import com.grupo1.models.Cliente;
 import com.grupo1.models.ClienteDAO;
+import com.grupo1.models.DetalleVenta;
 import com.grupo1.models.DetalleVentaDAO;
 import com.grupo1.models.MedioPago;
 import com.grupo1.models.MedioPagoDAO;
 import com.grupo1.models.Producto;
 import com.grupo1.models.ProductoDAO;
+import com.grupo1.models.Venta;
 import com.grupo1.models.VentaDAO;
 import com.grupo1.views.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -39,8 +45,61 @@ public class ControlRegistro {
         vtnSeleccionar.setVisible(true);
     }
 
-    public void registrarVenta() {
+    public void registrarVenta() throws SQLException, Exception {
+        //Registrar Cliente
+        Cliente c = guardarCliente();
+        try {
+            if (!clienteDAO.verificarExistencia(c)) {
+                try {
+                    clienteDAO.create(c);
+                } catch (Exception ex) {
+                    Logger.getLogger(ControlRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlRegistro.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+        //Obtener Datos Venta
+        Venta v = new Venta();
+        v.setFechaVenta(new Date());
+        v.setTotal(Double.parseDouble(panelRegistrarVenta.lblTotal.getText()));
+        v.setIdMedioPago(medioPagoDAO.obtenerIdporNombre(panelRegistrarVenta.cmbMedioPago.getSelectedItem().toString()));
+        v.setIdCliente(c.getId_cliente());
+        int idVenta = ventaDAO.create(v);
+        v.setId_venta(idVenta);
+        
+        //Obtener Datos DetalleVenta
+        DefaultTableModel model = (DefaultTableModel) panelRegistrarVenta.jTable1.getModel();
+        for (Object fila : model.getDataVector()) {
+            Vector<?> vectorFila = (Vector<?>) fila;
+            DetalleVenta detalle = new DetalleVenta();
+            detalle.setIdVenta(v.getId_venta());
+            detalle.setIdProducto(productoDAO.obtenerIdporNombre(String.valueOf(vectorFila.get(0))));
+            detalle.setCantidad(Integer.parseInt(String.valueOf(String.valueOf(vectorFila.get(1)))));
+            detalle.setPrecioUnitario(Double.parseDouble(String.valueOf(vectorFila.get(2))));
+            detalle.setSubtotal(Double.parseDouble(String.valueOf(vectorFila.get(3))));
+            v.getDetalleVentas().add(detalle);
+        }
+        
+        for(DetalleVenta d : v.getDetalleVentas()){
+            System.out.println(d.getIdProducto());
+        }
+        
+        detalleDAO.create(v.getDetalleVentas());
+
+    }
+
+    public Cliente guardarCliente() {
+        Cliente c = new Cliente();
+        if (panelRegistrarVenta.txtDocumento.getText().isEmpty() || panelRegistrarVenta.txtNombreCliente.getText().isEmpty()) {
+            c.setId_cliente("00000000");
+            c.setNombre("Cliente Default");
+            return c;
+        }
+        c.setId_cliente(panelRegistrarVenta.txtDocumento.getText());
+        c.setNombre(panelRegistrarVenta.txtNombreCliente.getText());
+        return c;
     }
 
     public void botonCancelar() {
@@ -172,7 +231,15 @@ public class ControlRegistro {
                 buscarProducto();
             }
         });
-        panelRegistrarVenta.btnRegistrarVenta.addActionListener(e -> registrarVenta());
+        panelRegistrarVenta.btnRegistrarVenta.addActionListener(e -> {
+            try {
+                registrarVenta();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControlRegistro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(ControlRegistro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         panelRegistrarVenta.btnCancelar.addActionListener(e -> botonCancelar());
         panelRegistrarVenta.btnAgregarProducto.addActionListener(e -> agregarProducto());
         panelRegistrarVenta.spnCantidad.addChangeListener(new ChangeListener() {

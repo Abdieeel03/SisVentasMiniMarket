@@ -126,9 +126,9 @@ public class ProductoDAO extends Database implements DAOProducto {
             if (rs.next()) {
                 idCategoria = rs.getInt("id_categoria");
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }  finally {
+        } finally {
             this.cerrar();
         }
         return idCategoria;
@@ -144,12 +144,30 @@ public class ProductoDAO extends Database implements DAOProducto {
             if (rs.next()) {
                 idProveedor = rs.getString("id_proveedor");
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             this.cerrar();
         }
         return idProveedor;
+    }
+
+    public int obtenerIdporNombre(String nombre) throws SQLException {
+        int id = -1;
+        try {
+            this.conectar();
+            PreparedStatement st = this.conexion.prepareStatement("SELECT id_producto FROM producto WHERE nombre = ?");
+            st.setString(1, nombre);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt("id_producto");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.cerrar();
+        }
+        return id;
     }
 
 }
