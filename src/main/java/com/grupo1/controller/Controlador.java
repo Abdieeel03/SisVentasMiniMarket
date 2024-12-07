@@ -15,7 +15,7 @@ public class Controlador {
 
     public void iniciarEjecucion() {
         vtnLogin.setVisible(false);
-        vtnInicio.showJPanel(new PanelPrincipal());
+        vtnInicio.mostrarPanel(new PanelPrincipal());
         vtnInicio.setVisible(true);
     }
 
@@ -23,7 +23,7 @@ public class Controlador {
         controlRegistro.limpiarDatos();
         controlRegistro.llenarComboBox();
         controlRegistro.vaciarTabla();
-        vtnInicio.showJPanel(panelRegistrarVenta);
+        vtnInicio.mostrarPanel(panelRegistrarVenta);
     }
 
     public void showPanelProducto() {
@@ -31,7 +31,7 @@ public class Controlador {
             JOptionPane.showMessageDialog(null, "Usted no puede acceder a este apartado!");
             return;
         }
-        vtnInicio.showJPanel(panelProductos);
+        vtnInicio.mostrarPanel(panelProductos);
     }
 
     public void showPanelProveedores() {
@@ -39,7 +39,7 @@ public class Controlador {
             JOptionPane.showMessageDialog(null, "Usted no puede acceder a este apartado!");
             return;
         }
-        vtnInicio.showJPanel(panelProveedor);
+        vtnInicio.mostrarPanel(panelProveedor);
     }
 
     public void showPanelUsuarios() {
@@ -47,7 +47,7 @@ public class Controlador {
             JOptionPane.showMessageDialog(null, "Usted no puede acceder a este apartado!");
             return;
         }
-        vtnInicio.showJPanel(panelUsuario);
+        vtnInicio.mostrarPanel(panelUsuario);
     }
 
     public void showPanelReporte() {
@@ -56,7 +56,7 @@ public class Controlador {
             return;
         }
         controlReporte.mostrarEstadisticas();
-        vtnInicio.showJPanel(panelReporte);
+        vtnInicio.mostrarPanel(panelReporte);
     }
 
     public void verificarLogin() {

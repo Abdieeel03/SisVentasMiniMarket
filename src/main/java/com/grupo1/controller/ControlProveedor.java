@@ -22,7 +22,7 @@ public class ControlProveedor {
 
     public void showNuevoProveedor() {
         nuevoProveedor.limpiar();
-        vtnInicio.showJPanel(nuevoProveedor);
+        vtnInicio.mostrarPanel(nuevoProveedor);
     }
 
     public void showBuscarProveedor() {
@@ -32,21 +32,21 @@ public class ControlProveedor {
             Logger.getLogger(ControlProveedor.class.getName()).log(Level.SEVERE, null, ex);
         }
         buscarProveedor.txtBusqueda.setText("");
-        vtnInicio.showJPanel(buscarProveedor);
+        vtnInicio.mostrarPanel(buscarProveedor);
     }
 
     public void showEditarProveedor(int fila) {
         editarProveedor.limpiar();
         llenarDatosEditar(fila);
-        vtnInicio.showJPanel(editarProveedor);
+        vtnInicio.mostrarPanel(editarProveedor);
     }
 
     public void accionCancelar() {
-        vtnInicio.showJPanel(panelProveedor);
+        vtnInicio.mostrarPanel(panelProveedor);
     }
 
     public void accionSalir() {
-        vtnInicio.showJPanel(panelProveedor);
+        vtnInicio.mostrarPanel(panelProveedor);
     }
 
     public void registrar() {
@@ -63,7 +63,7 @@ public class ControlProveedor {
         proveedor.setPaginaWeb(nuevoProveedor.txtPagina.getText());
         try {
             proveedorDAO.create(proveedor);
-            vtnInicio.showJPanel(panelProveedor);
+            vtnInicio.mostrarPanel(panelProveedor);
             JOptionPane.showMessageDialog(vtnInicio, "Proveedor creado correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
             Logger.getLogger(ControlProveedor.class.getName()).log(Level.SEVERE, null, ex);
@@ -85,7 +85,7 @@ public class ControlProveedor {
         proveedor.setPaginaWeb(editarProveedor.txtPagina.getText());
         try {
             proveedorDAO.update(proveedor);
-            vtnInicio.showJPanel(panelProveedor);
+            vtnInicio.mostrarPanel(panelProveedor);
             JOptionPane.showMessageDialog(null, "Proveedor actualizado correctamente!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
             Logger.getLogger(ControlProveedor.class.getName()).log(Level.SEVERE, null, ex);
@@ -105,7 +105,7 @@ public class ControlProveedor {
                 Proveedor proveedor = new Proveedor();
                 proveedor.setIdProveedor(editarProveedor.txtRUC.getText());
                 proveedorDAO.delete(proveedor);
-                vtnInicio.showJPanel(panelProveedor);
+                vtnInicio.mostrarPanel(panelProveedor);
                 JOptionPane.showMessageDialog(null, "Proveedor eliminado correctamente!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);

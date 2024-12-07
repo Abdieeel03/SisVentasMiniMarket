@@ -83,8 +83,8 @@ com\grupo1\views\PanelProveedor$1.class
 com\grupo1\interfaces\DAOCategoria.class
 com\grupo1\views\VtnLogin$1.class
 com\grupo1\views\NuevoProveedor$1.class
-com\grupo1\views\VtnInicio$1.class
 com\grupo1\views\PanelProductos$1.class
+com\grupo1\views\VtnInicio$1.class
 com\grupo1\controller\ControlRegistro$3.class
 com\grupo1\views\NuevoUsuario$1.class
 com\grupo1\views\EditarProveedor$3.class

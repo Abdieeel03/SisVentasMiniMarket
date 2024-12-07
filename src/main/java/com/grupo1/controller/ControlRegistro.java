@@ -80,17 +80,22 @@ public class ControlRegistro {
         for (Object fila : model.getDataVector()) {
             Vector<?> vectorFila = (Vector<?>) fila;
             DetalleVenta detalle = new DetalleVenta();
+            Producto p = new Producto();
             detalle.setIdVenta(v.getId_venta());
             detalle.setIdProducto(productoDAO.obtenerIdporNombre(String.valueOf(vectorFila.get(0))));
             detalle.setCantidad(Integer.parseInt(String.valueOf(String.valueOf(vectorFila.get(1)))));
             detalle.setPrecioUnitario(Double.parseDouble(String.valueOf(vectorFila.get(2))));
             detalle.setSubtotal(Double.parseDouble(String.valueOf(vectorFila.get(3))));
             v.getDetalleVentas().add(detalle);
+            //Actualiza stock del producto
+            p.setIdProducto(productoDAO.obtenerIdporNombre(String.valueOf(vectorFila.get(0))));
+            int cantidad = Integer.parseInt(String.valueOf(String.valueOf(vectorFila.get(1))));
+            productoDAO.actualizarStock(p, cantidad);
         }
 
         detalleDAO.create(v.getDetalleVentas());
 
-        vtnInicio.showJPanel(new PanelPrincipal());
+        vtnInicio.mostrarPanel(new PanelPrincipal());
         limpiarDatos();
         model.setRowCount(0);
         JOptionPane.showMessageDialog(null, "Venta Realizada Correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
@@ -110,7 +115,7 @@ public class ControlRegistro {
     }
 
     public void botonCancelar() {
-        vtnInicio.showJPanel(new PanelPrincipal());
+        vtnInicio.mostrarPanel(new PanelPrincipal());
         panelRegistrarVenta.txtNombreProducto.setText("");
     }
 

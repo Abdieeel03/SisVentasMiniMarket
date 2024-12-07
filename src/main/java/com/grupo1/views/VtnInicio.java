@@ -37,10 +37,10 @@ public class VtnInicio extends javax.swing.JFrame {
         lblNbrEmpresa.setForeground(Color.BLACK);
     }
 
-    public void showJPanel(JPanel jp) {
+    public void mostrarPanel(JPanel panel) {
         pnlPantalla.setLayout(new BorderLayout());
         pnlPantalla.removeAll();
-        pnlPantalla.add(jp, BorderLayout.CENTER); // Añade el JPanel en el centro
+        pnlPantalla.add(panel, BorderLayout.CENTER);
         pnlPantalla.revalidate();
         pnlPantalla.repaint();
     }
@@ -285,7 +285,7 @@ public class VtnInicio extends javax.swing.JFrame {
         );
 
         if (opcion == JOptionPane.YES_OPTION) {
-            System.exit(0); // Cierra la aplicación
+            System.exit(0);
         }
     }//GEN-LAST:event_formWindowClosing
 

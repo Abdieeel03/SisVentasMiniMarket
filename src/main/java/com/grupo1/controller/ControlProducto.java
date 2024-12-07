@@ -29,24 +29,24 @@ public class ControlProducto {
     public void showNuevoProducto() {
         nuevoProducto.limpiar();
         llenarComboBox();
-        vtnInicio.showJPanel(nuevoProducto);
+        vtnInicio.mostrarPanel(nuevoProducto);
     }
 
     public void showBuscarProducto() throws Exception {
         llenarTabla();
         buscarProducto.txtBusqueda.setText("");
-        vtnInicio.showJPanel(buscarProducto);
+        vtnInicio.mostrarPanel(buscarProducto);
     }
 
     public void showEditarProducto(int fila) {
         editarProducto.limpiar();
         llenarComboBox();
         llenarDatosEditar(fila);
-        vtnInicio.showJPanel(editarProducto);
+        vtnInicio.mostrarPanel(editarProducto);
     }
 
     public void accionCancelar() {
-        vtnInicio.showJPanel(panelProductos);
+        vtnInicio.mostrarPanel(panelProductos);
     }
 
     public void registrar() {
@@ -90,7 +90,7 @@ public class ControlProducto {
         ids.add(nuevoProducto.cmbProveedor.getSelectedItem().toString());
         try {
             productoDAO.create(p, ids);
-            vtnInicio.showJPanel(panelProductos);
+            vtnInicio.mostrarPanel(panelProductos);
             JOptionPane.showMessageDialog(vtnInicio, "Producto registrado correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
             Logger.getLogger(ControlProducto.class.getName()).log(Level.SEVERE, null, ex);
@@ -141,7 +141,7 @@ public class ControlProducto {
         ids.add(editarProducto.cmbProveedor.getSelectedItem().toString());
         try {
             productoDAO.update(p, ids);
-            vtnInicio.showJPanel(panelProductos);
+            vtnInicio.mostrarPanel(panelProductos);
             JOptionPane.showMessageDialog(vtnInicio, "Producto actualizado correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
             Logger.getLogger(ControlProducto.class.getName()).log(Level.SEVERE, null, ex);
@@ -161,7 +161,7 @@ public class ControlProducto {
                 Producto p = new Producto();
                 p.setIdProducto(Integer.parseInt(editarProducto.txtID.getText()));
                 productoDAO.delete(p);
-                vtnInicio.showJPanel(panelProductos);
+                vtnInicio.mostrarPanel(panelProductos);
                 JOptionPane.showMessageDialog(null, "Producto eliminado correctamente!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);

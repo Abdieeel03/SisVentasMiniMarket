@@ -76,13 +76,6 @@ public class ProductoDAO extends Database implements DAOProducto {
             );
             producto.setIdCategoria(obtenerIdCategoria(ids.get(0)));
             producto.setIdProveedor(obtenerIdProveedor(ids.get(1)));
-            System.out.println(producto.getNombre());
-            System.out.println(producto.getPrecioCompra());
-            System.out.println(producto.getPrecioVenta());
-            System.out.println(producto.getStock());
-            System.out.println(producto.getIdCategoria());
-            System.out.println(producto.getIdProveedor());
-            System.out.println(producto.getIdProducto());
             st.setString(1, producto.getNombre());
             st.setDouble(2, producto.getPrecioCompra());
             st.setDouble(3, producto.getPrecioVenta());
@@ -226,6 +219,21 @@ public class ProductoDAO extends Database implements DAOProducto {
         }
 
         return ultimasVentas;
+    }
+    
+    public void actualizarStock(Producto producto, int cantidad) throws SQLException{
+        try {
+            this.conectar();
+            PreparedStatement st = this.conexion.prepareStatement("UPDATE producto SET stock = stock - ? WHERE id_producto = ? AND stock >= ?");
+            st.setInt(1 ,cantidad);
+            st.setInt(2, producto.getIdProducto());
+            st.setInt(3, cantidad);
+            st.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.cerrar();
+        }
     }
 
 }

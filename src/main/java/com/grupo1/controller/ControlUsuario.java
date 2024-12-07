@@ -30,23 +30,23 @@ public class ControlUsuario {
 
     public void showNuevoUsuario() {
         llenarComboBox();
-        vtnInicio.showJPanel(nuevoUsuario);
+        vtnInicio.mostrarPanel(nuevoUsuario);
     }
 
     public void showBuscarUsuario() throws Exception {
         llenarTabla();
         buscarUsuario.txtBusqueda.setText("");
-        vtnInicio.showJPanel(buscarUsuario);
+        vtnInicio.mostrarPanel(buscarUsuario);
     }
 
     public void showEditarUsuario(int fila) {
         llenarComboBox();
         llenarDatosEditar(fila);
-        vtnInicio.showJPanel(editarUsuario);
+        vtnInicio.mostrarPanel(editarUsuario);
     }
 
     public void accionCancelar() {
-        vtnInicio.showJPanel(panelUsuario);
+        vtnInicio.mostrarPanel(panelUsuario);
     }
 
     public void registrar() throws Exception {
@@ -65,7 +65,7 @@ public class ControlUsuario {
         usuario.setDescripcion(nuevoUsuario.txtaDescripcion.getText());
         try {
             usuarioDAO.create(usuario, nombreRol);
-            vtnInicio.showJPanel(panelUsuario);
+            vtnInicio.mostrarPanel(panelUsuario);
             nuevoUsuario.limpiar();
             JOptionPane.showMessageDialog(vtnInicio, "Usuario creado correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
@@ -87,7 +87,7 @@ public class ControlUsuario {
         usuario.setDescripcion(editarUsuario.txtaDescripcion.getText());
         try {
             usuarioDAO.update(usuario, nombreRol, idUsuario);
-            vtnInicio.showJPanel(panelUsuario);
+            vtnInicio.mostrarPanel(panelUsuario);
             editarUsuario.limpiar();
             JOptionPane.showMessageDialog(vtnInicio, "Usuario actualizado correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
@@ -106,7 +106,7 @@ public class ControlUsuario {
         if (opcion == JOptionPane.YES_OPTION) {
             try {
                 usuarioDAO.delete(idUsuario);
-                vtnInicio.showJPanel(panelUsuario);
+                vtnInicio.mostrarPanel(panelUsuario);
                 JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
                 editarUsuario.limpiar();
             } catch (Exception ex) {
